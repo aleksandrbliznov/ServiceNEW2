@@ -1658,7 +1658,7 @@ def admin_pending_services():
         print(f"Error loading pending services: {e}")
         return render_template('admin_pending_services.html', services=[])
 
-@app.route('/admin/approve-service/<int:service_id>')
+@app.route('/admin/approve-service/<int:service_id>', methods=['POST'])
 @login_required
 def approve_service(service_id):
     if current_user.role != ADMIN:
@@ -1671,7 +1671,7 @@ def approve_service(service_id):
     flash(f'Service "{service.name}" has been approved.', 'success')
     return redirect(url_for('admin_pending_services'))
 
-@app.route('/admin/reject-service/<int:service_id>')
+@app.route('/admin/reject-service/<int:service_id>', methods=['POST'])
 @login_required
 def reject_service(service_id):
     if current_user.role != ADMIN:
