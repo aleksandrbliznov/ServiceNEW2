@@ -404,9 +404,15 @@ body {
 }
 
 .stats-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-}
+     transform: translateY(-5px);
+     background: rgba(255, 255, 255, 0.15);
+ }
+
+.stats-card h3 {
+     color: #ffffff;
+     font-weight: 700;
+     margin-bottom: var(--spacing-xs);
+ }
 
 .stats-icon {
     font-size: 2.5rem;
