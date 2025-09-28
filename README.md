@@ -33,6 +33,9 @@ A complete service booking application built with Python Flask, featuring user r
 - **Bootstrap 5**: Modern, clean interface
 - **Interactive Elements**: Smooth animations and transitions
 - **User-friendly**: Intuitive navigation and workflows
+- **Modern Landing Page**: Professional landing page with hero section, service cards, features, and contact form
+- **Glass Morphism Effects**: Modern card designs with backdrop blur effects
+- **CSS Variables**: Consistent theming with CSS custom properties
 
 ## Technology Stack
 
@@ -148,7 +151,8 @@ service-app/
 │   └── book_service.html      # Service booking form
 └── static/             # Static assets
     ├── css/
-    │   └── style.css   # Custom styles
+    │   ├── style.css        # Main custom styles
+    │   └── site-modern.css  # Modern landing page styles
     └── js/
         └── script.js   # JavaScript functionality
 ```

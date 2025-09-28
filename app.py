@@ -538,11 +538,15 @@ def index():
 
         # Try to serve landing page first
         if os.path.exists(os.path.join(app.root_path, 'templates', landing_template)):
-            service_groups = ServiceGroup.query.filter_by(is_active=True).limit(6).all()
+            try:
+                service_groups = ServiceGroup.query.filter_by(is_active=True).limit(6).all()
+            except:
+                # If database query fails, use empty list but still show the page
+                service_groups = []
             return render_template(landing_template, service_groups=service_groups)
         # Fallback to original index page
         elif os.path.exists(os.path.join(app.root_path, 'templates', index_template)):
-            service_groups = ServiceGroup.query.filter_by(is_active=True).limit(6).all()
+            service_groups = []
             return render_template(index_template, service_groups=service_groups)
         # Ultimate fallback - simple message
         else:
