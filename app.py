@@ -327,6 +327,18 @@ def inject_gettext():
         '_': gettext
     }
 
+# Custom Jinja filters
+@app.template_filter('parse_json')
+def parse_json(value):
+    """Parse JSON string to Python object"""
+    if not value:
+        return []
+    try:
+        import json
+        return json.loads(value)
+    except (json.JSONDecodeError, TypeError):
+        return []
+
 # User roles
 USER = 'user'
 ADMIN = 'admin'
@@ -1144,9 +1156,12 @@ def admin_users():
             bookings = Booking.query.filter_by(handyman_id=handyman.id).all()
 
             # Calculate statistics
-            total_earnings = sum(booking.total_price for booking in bookings if booking.status == 'completed')
             in_progress_count = len([b for b in bookings if b.status == 'in_progress'])
             completed_count = len([b for b in bookings if b.status == 'completed'])
+
+            # Get handyman earnings from Commission table for completed jobs
+            completed_commissions = Commission.query.filter_by(handyman_id=handyman.id).all()
+            total_earnings = sum(commission.handyman_earnings for commission in completed_commissions)
 
             handyman_stats.append({
                 'handyman': handyman,

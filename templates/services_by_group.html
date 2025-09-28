@@ -52,12 +52,22 @@
                             <div class="mb-3">
                                 <h6>{{ _('Example Work') }}:</h6>
                                 <div class="d-flex flex-wrap gap-2">
-                                    {% for image_url in service.example_images.split('\n')[:3] %}
-                                    {% if image_url.strip() %}
-                                    <img src="{{ image_url.strip() }}" alt="{{ _('Example work') }}" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                                    {% set image_urls = service.example_images | parse_json %}
+                                    {% for image_url in image_urls[:3] %}
+                                    {% if image_url %}
+                                    <img src="{{ image_url }}" alt="{{ _('Example work') }}"
+                                         class="img-thumbnail example-image"
+                                         style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                                         data-bs-toggle="modal"
+                                         data-bs-target="#imageModal"
+                                         data-bs-image="{{ image_url }}"
+                                         onclick="showLargeImage('{{ image_url }}')">
                                     {% endif %}
                                     {% endfor %}
                                 </div>
+                                {% if image_urls|length > 3 %}
+                                <small class="text-muted">+{{ image_urls|length - 3 }} more images</small>
+                                {% endif %}
                             </div>
                             {% endif %}
 
@@ -77,4 +87,40 @@
         </div>
     </div>
 </div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">{{ _('Example Work') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="{{ _('Example work') }}" class="img-fluid" style="max-width: 100%; max-height: 70vh;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ _('Close') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showLargeImage(imageUrl) {
+    document.getElementById('modalImage').src = imageUrl;
+}
+</script>
+
+<style>
+.example-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+.example-image {
+    transition: all 0.2s ease;
+}
+</style>
+
 {% endblock %}

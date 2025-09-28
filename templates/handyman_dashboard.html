@@ -125,8 +125,8 @@
         <div class="card bg-warning text-white">
             <div class="card-body text-center">
                 <i class="fas fa-dollar-sign fa-2x mb-2"></i>
-                <h3>${{ "%.2f"|format(bookings|selectattr('status', 'equalto', 'completed')|map(attribute='total_price')|sum) }}</h3>
-                <p>{{ _('Earnings') }}</p>
+                <h3>${{ "%.2f"|format(bookings|selectattr('status', 'equalto', 'completed')|map(attribute='total_price')|sum * 0.9) }}</h3>
+                <p>{{ _('Earnings (90%)') }}</p>
             </div>
         </div>
     </div>
