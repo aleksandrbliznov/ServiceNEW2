@@ -7,8 +7,11 @@
 {% endblock %}
 
 {% block content %}
+<!-- Skip to main content for accessibility -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
+
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section" role="banner" aria-label="Welcome to Service PRO">
     <div class="container">
         <div class="row align-items-center min-vh-100">
             <div class="col-lg-6">
@@ -23,11 +26,13 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a class="btn btn-primary btn-lg me-3" href="{{ url_for('register') }}" role="button">
+                        <a class="btn btn-primary btn-lg me-3" href="{{ url_for('register') }}" role="button"
+                           aria-label="Register as a new user">
                             <i class="fas fa-user-plus me-2" aria-hidden="true"></i>
                             <span>Register</span>
                         </a>
-                        <a class="btn btn-outline-primary btn-lg" href="{{ url_for('services') }}" role="button">
+                        <a class="btn btn-outline-primary btn-lg" href="{{ url_for('services') }}" role="button"
+                           aria-label="Browse and book available services">
                             <i class="fas fa-search me-2" aria-hidden="true"></i>
                             <span>Book Service</span>
                         </a>
@@ -56,25 +61,28 @@
     </div>
 </section>
 
+<!-- Main Content -->
+<main id="main-content">
+
 <!-- Popular Services Section -->
-<section class="services-section" id="services">
+<section class="services-section" id="services" aria-labelledby="services-heading">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title">Popular Services</h2>
+            <h2 class="section-title" id="services-heading">Popular Services</h2>
             <p class="section-subtitle">Choose from our most requested professional services</p>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush" aria-hidden="true"></i>
+                <div class="service-card" role="article" aria-labelledby="painting-title">
+                    <div class="service-icon" aria-hidden="true">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h5 class="service-title">Painting</h5>
+                    <h5 class="service-title" id="painting-title">Painting</h5>
                     <p class="service-description">
                         Professional interior and exterior painting services with quality finishes
                     </p>
-                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm">
+                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Learn more about painting services">
                         <span>Learn More</span>
                         <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                     </a>
@@ -332,6 +340,8 @@
         </div>
     </div>
 </section>
+
+</main>
 {% endblock %}
 
 {% block extra_js %}

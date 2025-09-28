@@ -16,10 +16,11 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Import API blueprint functions
-
 # Create Flask app
 app = Flask(__name__)
+
+# Import API blueprint functions after app creation to avoid circular import
+from api import init_api
 
 # Security: Generate a secure secret key if not provided
 def generate_secret_key():
@@ -1716,6 +1717,9 @@ def mark_commission_paid(commission_id):
     db.session.commit()
     flash('Commission marked as paid.', 'success')
     return redirect(url_for('admin_commissions'))
+
+# Initialize API blueprint
+init_api(app)
 
 # Initialize database
 @app.cli.command('init-db')

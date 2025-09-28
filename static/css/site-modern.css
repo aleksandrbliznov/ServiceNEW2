@@ -8,7 +8,7 @@
     --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
     --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
-    /* Modern Colors */
+    /* Modern Colors with improved contrast */
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;
     --secondary-color: #8b5cf6;
@@ -16,6 +16,13 @@
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
+
+    /* Text colors for better contrast */
+    --text-primary: #0f172a;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-on-dark: #ffffff;
+    --text-on-primary: #ffffff;
 
     /* Neutral Colors */
     --white: #ffffff;
@@ -30,10 +37,10 @@
     --gray-800: #1f2937;
     --gray-900: #111827;
 
-    /* Glass morphism */
-    --glass-bg: rgba(255, 255, 255, 0.95);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
+    /* Glass morphism with improved contrast */
+    --glass-bg: rgba(255, 255, 255, 0.98);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.15);
 
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -75,7 +82,7 @@ html {
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
-    color: var(--gray-700);
+    color: var(--text-primary);
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
     min-height: 100vh;
     background-attachment: fixed;
@@ -123,7 +130,8 @@ body {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: var(--text-on-dark);
 }
 
 .text-gradient {
@@ -137,11 +145,13 @@ body {
 .hero-subtitle {
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     margin-bottom: var(--spacing-xl);
-    opacity: 0.9;
+    opacity: 0.95;
     line-height: 1.7;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--text-on-dark);
 }
 
 .hero-buttons {
@@ -229,13 +239,13 @@ body {
 .section-title {
     font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: 700;
-    color: var(--gray-800);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
@@ -300,12 +310,12 @@ body {
 .service-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--gray-800);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
 .service-description {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
     line-height: 1.7;
 }
@@ -344,12 +354,12 @@ body {
 .feature-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--gray-800);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
 .feature-description {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
@@ -409,12 +419,12 @@ body {
 .contact-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--gray-800);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
 .contact-subtitle {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-xl);
     line-height: 1.7;
 }
@@ -425,7 +435,7 @@ body {
 
 .form-label {
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-xs);
     display: flex;
     align-items: center;
@@ -581,19 +591,65 @@ body {
     .hero-section {
         padding: var(--spacing-lg) 0;
         text-align: center;
+        min-height: 90vh;
     }
 
     .hero-visual {
-        height: 300px;
+        height: 250px;
         margin-top: var(--spacing-lg);
     }
 
     .hero-main-icon {
-        font-size: 6rem;
+        font-size: 5rem;
     }
 
     .floating-element {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .hero-icon-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Improve form accessibility on mobile */
+    .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Better touch targets */
+    .btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .btn-sm {
+        min-height: 40px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .service-card,
+    .feature-card {
+        padding: var(--spacing-lg);
+    }
+
+    .contact-card {
+        padding: var(--spacing-lg);
     }
 }
 
@@ -608,9 +664,49 @@ body {
 
 /* Focus styles for accessibility */
 .btn:focus,
-.form-control:focus {
+.form-control:focus,
+a:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+/* Enhanced accessibility */
+.btn:focus-visible,
+.form-control:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-to-main:focus {
+    top: 6px;
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* High contrast mode support */
@@ -630,45 +726,73 @@ body {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --glass-bg: rgba(30, 41, 59, 0.95);
-        --glass-border: rgba(71, 85, 105, 0.3);
-        --glass-shadow: rgba(0, 0, 0, 0.3);
+        --glass-bg: rgba(15, 23, 42, 0.98);
+        --glass-border: rgba(71, 85, 105, 0.2);
+        --glass-shadow: rgba(0, 0, 0, 0.4);
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
     }
 
     body {
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        color: #e2e8f0;
+        color: var(--text-primary);
     }
 
     .service-card,
     .feature-card,
     .contact-card {
-        background: rgba(30, 41, 59, 0.9);
-        color: #e2e8f0;
-        border-color: rgba(71, 85, 105, 0.3);
+        background: var(--glass-bg);
+        color: var(--text-primary);
+        border-color: var(--glass-border);
     }
 
     .section-title {
-        color: #e2e8f0;
+        color: var(--text-primary);
     }
 
     .section-subtitle {
-        color: #94a3b8;
+        color: var(--text-secondary);
+    }
+
+    .service-title {
+        color: var(--text-primary);
+    }
+
+    .service-description {
+        color: var(--text-secondary);
+    }
+
+    .feature-title {
+        color: var(--text-primary);
+    }
+
+    .feature-description {
+        color: var(--text-secondary);
+    }
+
+    .contact-title {
+        color: var(--text-primary);
+    }
+
+    .contact-subtitle {
+        color: var(--text-secondary);
     }
 
     .form-control {
-        background: rgba(51, 65, 85, 0.9);
-        border-color: rgba(71, 85, 105, 0.5);
-        color: #e2e8f0;
+        background: rgba(30, 41, 59, 0.9);
+        border-color: rgba(71, 85, 105, 0.4);
+        color: var(--text-primary);
     }
 
     .form-control:focus {
-        background: rgba(51, 65, 85, 0.9);
-        color: #e2e8f0;
+        background: rgba(30, 41, 59, 0.9);
+        color: var(--text-primary);
+        border-color: var(--primary-color);
     }
 
     .form-label {
-        color: #cbd5e1;
+        color: var(--text-secondary);
     }
 }
 
