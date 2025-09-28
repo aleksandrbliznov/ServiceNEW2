@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Book Service - Service PRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                <li class="breadcrumb-item active">{{ _('Book Service') }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-calendar-plus me-2"></i>{{ _('Book Service') }}
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h4>{{ service.name }}</h4>
+                        <p class="text-muted">{{ service.description }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><strong>{{ _('Price:') }}</strong> ${{ "%.2f"|format(service.price) }}</li>
+                            <li><strong>{{ _('Duration:') }}</strong> {{ service.duration_hours }} hours</li>
+                            <li><strong>{{ _('Category:') }}</strong> {{ service.category or 'General' }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+
+                    <div class="mb-3">
+                        {{ form.service_id.label(class="form-label") }}
+                        {{ form.service_id(class="form-select", disabled=True) }}
+                        <small class="form-text text-muted">{{ _('Service is pre-selected based on your choice.') }}</small>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.booking_date.label(class="form-label") }}
+                        {{ form.booking_date(class="form-control", type="datetime-local") }}
+                        {% for error in form.booking_date.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                        {% endfor %}
+                        <small class="form-text text-muted">{{ _('Please select your preferred date and time.') }}</small>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.special_requests.label(class="form-label") }}
+                        {{ form.special_requests(class="form-control", rows=3) }}
+                        {% for error in form.special_requests.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                        {% endfor %}
+                        <small class="form-text text-muted">{{ _('Any special requirements or notes for the service.') }}</small>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check me-2"></i>{{ _('Confirm Booking') }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>{{ _('Booking Information') }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <h6>{{ _('What\'s Next?') }}</h6>
+                <ol class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-check text-success me-2"></i>
+                        {{ _('Submit your booking request') }}
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-clock text-warning me-2"></i>
+                        {{ _('Admin reviews and approves your request') }}
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-user-cog text-primary me-2"></i>
+                        {{ _('A qualified handyman is assigned') }}
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-tools text-info me-2"></i>
+                        {{ _('Service is completed') }}
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h6>{{ _('Need Help?') }}</h6>
+                <p class="mb-0">{{ _('If you have any questions about this service, please contact our support team.') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Set minimum datetime to now
+document.addEventListener('DOMContentLoaded', function() {
+    const now = new Date();
+    const offset = now.getTimezoneOffset();
+    const localNow = new Date(now.getTime() - offset * 60000);
+    const formattedNow = localNow.toISOString().slice(0, 16);
+
+    document.getElementById('booking_date').min = formattedNow;
+});
+</script>
+{% endblock %}

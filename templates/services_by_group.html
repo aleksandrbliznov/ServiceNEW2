@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('services') }}">{{ _('Services') }}</a></li>
+                    <li class="breadcrumb-item active">{{ service_group.name_et or service_group.name }}</li>
+                </ol>
+            </nav>
+
+            <h2 class="mb-4">{{ service_group.name_et or service_group.name }} - {{ _('Services') }}</h2>
+
+            {% if services %}
+            <div class="row">
+                {% for service in services %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-3">{{ service.name }}</h5>
+                            <p class="card-text flex-grow-1">{{ service.description }}</p>
+
+                            <div class="service-details mb-3">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="detail-item">
+                                            <i class="fas fa-euro-sign text-primary mb-1"></i>
+                                            <div class="fw-bold">${{ service.price }}</div>
+                                            <small class="text-muted">{{ _('Price') }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock text-primary mb-1"></i>
+                                            <div class="fw-bold">{{ service.duration_hours }}h</div>
+                                            <small class="text-muted">{{ _('Duration') }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="detail-item">
+                                            <i class="fas fa-user text-primary mb-1"></i>
+                                            <div class="fw-bold">{{ service.handyman.first_name|truncate(8) }}</div>
+                                            <small class="text-muted">{{ _('Provider') }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if service.example_images %}
+                            <div class="mb-3">
+                                <h6>{{ _('Example Work') }}:</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for image_url in service.example_images.split('\n')[:3] %}
+                                    {% if image_url.strip() %}
+                                    <img src="{{ image_url.strip() }}" alt="{{ _('Example work') }}" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <a href="{{ url_for('book_service', service_id=service.id) }}" class="btn btn-primary mt-auto">{{ _('Book Service') }}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <h4>{{ _('No services available in this category') }}</h4>
+                <p>{{ _('Services in this category will be added soon. Please check back later.') }}</p>
+                <a href="{{ url_for('services') }}" class="btn btn-secondary">{{ _('Back to Categories') }}</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

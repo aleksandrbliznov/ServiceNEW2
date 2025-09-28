@@ -1,0 +1,141 @@
+diff --git a/app.py b/app.py
+index abc123..def456 100644
+--- a/app.py
++++ b/app.py
+@@
+-from flask import Flask, render_template, request, redirect, url_for, flash
++from flask import Flask, render_template, request, redirect, url_for, flash
++import os
+@@
+ app = Flask(__name__)
+@@
+-@app.route('/')
+-def index():
+-    return render_template('index.html')
++@app.route('/')
++def index():
++    """
++    Fallback: если есть шаблон landing.html — используем его для современного лендинга,
++    иначе — оставляем старый индекс (index.html) для совместимости.
++    """
++    templates_dir = app.template_folder or 'templates'
++    landing_path = os.path.join(templates_dir, 'landing.html')
++    index_path = os.path.join(templates_dir, 'index.html')
++    if os.path.exists(landing_path):
++        return render_template('landing.html')
++    if os.path.exists(index_path):
++        return render_template('index.html')
++    return "Service app — no index template found.", 200
+diff --git a/static/css/site-modern.css b/static/css/site-modern.css
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/static/css/site-modern.css
+@@
++:root{
++  --brand-1: #ff6b35;
++  --brand-2: #0f1724;
++  --muted: #6b7280;
++  --surface: #ffffff;
++  --glass: rgba(255,255,255,0.7);
++  --radius: 12px;
++  --container-width: 1100px;
++  --max-width: 1200px;
++  --gap: 1.25rem;
++  --transition: 220ms ease;
++  --font-sans: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
++}
++*{box-sizing:border-box}
++html,body{height:100%}
++body{
++  font-family:var(--font-sans);
++  color:var(--brand-2);
++  background:linear-gradient(180deg,#f7fafc 0%, #ffffff 100%);
++  margin:0;
++  -webkit-font-smoothing:antialiased;
++}
++.container{
++  width:100%;
++  max-width:var(--container-width);
++  margin:0 auto;
++  padding:0 1rem;
++}
++.container.small{max-width:900px}
++.hero{
++  padding:3.5rem 0;
++  background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
++}
++.hero-inner{
++  display:flex;
++  gap:var(--gap);
++  align-items:center;
++  justify-content:space-between;
++  flex-wrap:wrap;
++}
++.hero-text{flex:1 1 420px;min-width:260px}
++.hero-title{
++  font-size:2.1rem;
++  margin:0 0 .5rem 0;
++  line-height:1.05;
++  color:var(--brand-2);
++}
++.hero-sub{color:var(--muted);margin-bottom:1rem}
++.hero-ctas{display:flex;gap:.75rem;align-items:center}
++.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:.6rem .9rem;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:transform var(--transition), box-shadow var(--transition)}
++.btn-primary{background:var(--brand-1);color:white}
++.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,23,36,0.12)}
++.btn-outline{background:transparent;border-color:var(--brand-1);color:var(--brand-1)}
++.big-cta{padding: .85rem 1.2rem; font-weight:600; border-radius:14px;}
++.btn-sm{padding:.4rem .65rem;font-size:.95rem}
++.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
++.service-card{background:var(--surface);border-radius:14px;padding:1.1rem;box-shadow:0 6px 18px rgba(15,23,36,0.06);display:flex;flex-direction:column;gap:.6rem;min-height:160px}
++.card-icon{font-size:1.6rem}
++.section-title{font-size:1.25rem;margin:1rem 0;color:var(--brand-2)}
++.feature-list{display:flex;flex-direction:column;gap:.5rem;padding-left:0;list-style:none;margin:0}
++.contact-box{background:linear-gradient(180deg,#fff,#fbfcfd);padding:1rem;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 10px 30px rgba(15,23,36,0.05)}
++.contact-form{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;width:100%}
++.contact-form input[type="text"]{flex:1;padding:.6rem .8rem;border-radius:10px;border:1px solid #e6e9ef;min-width:200px}
++.form-actions{display:flex;gap:.6rem;align-items:center}
++.muted-link{color:var(--muted);text-decoration:underline;font-size:.95rem}
++.hero-visual{flex:0 0 360px;display:flex;align-items:center;justify-content:center}
++.hero-image{width:100%;max-width:360px;display:block}
++@media (max-width:800px){
++  .hero-inner{flex-direction:column-reverse;align-items:flex-start}
++  .hero-visual{width:100%}
++  .hero-title{font-size:1.6rem}
++}
++
++a:focus,button:focus,input:focus{outline:3px solid rgba(255,107,53,0.18);outline-offset:2px}
+diff --git a/templates/landing.html b/templates/landing.html
+new file mode 100644
+index 0000000..2222222
+--- /dev/null
++++ b/templates/landing.html
+@@
++{% extends "base.html" %}
++{% block head_extra %}
++  <link rel="preconnect" href="https://fonts.googleapis.com">
++  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
++  <link rel="stylesheet" href="{{ url_for('static', filename='css/site-modern.css') }}">
++{% endblock %}
++
++{% block content %}
++<main class="landing" role="main">
++  <section class="hero" aria-label="Hero">
++    <div class="container hero-inner">
++      <div class="hero-text">
++        <h1 class="hero-title">Быстрый и надёжный handyman рядом с вами</h1>
++        <p class="hero-sub">Ремонт, сборка, мелкие работы по дому — закажи мастера онлайн.</p>
++        <div class="hero-ctas">
++          <a class="btn btn-primary big-cta" href="{{ url_for('auth.register') }}">Зарегистрироваться</a>
++          <a class="btn btn-outline" href="{{ url_for('booking.create_booking') }}">Заказать услугу</a>
++        </div>
++      </div>
++      <div class="hero-visual" aria-hidden="true">
++        <img src="{{ url_for('static', filename='images/hero-handyman.png') }}" alt="" class="hero-image">
++      </div>
++    </div>
++  </section>
++</main>
++{% endblock %}

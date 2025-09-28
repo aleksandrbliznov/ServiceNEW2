@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Bookings - Service PRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                <li class="breadcrumb-item active">Manage Bookings</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-calendar-check me-2"></i>Manage Bookings
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Handyman</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking in bookings %}
+                            <tr>
+                                <td>{{ booking.id }}</td>
+                                <td>{{ booking.user.first_name }} {{ booking.user.last_name }}</td>
+                                <td>{{ booking.service.name }}</td>
+                                <td>{{ booking.booking_date.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>
+                                    {% if booking.status == 'declined' %}
+                                    <span class="badge bg-danger">Declined</span>
+                                    {% elif booking.status == 'pending' and not booking.admin_approved %}
+                                    <span class="badge bg-warning">Pending Approval</span>
+                                    {% elif booking.status == 'approved' and booking.admin_approved %}
+                                    <span class="badge bg-success">Approved</span>
+                                    {% else %}
+                                    <span class="badge bg-{{ 'warning' if booking.status == 'pending' else ('primary' if booking.status == 'in_progress' else ('success' if booking.status == 'completed' else 'secondary')) }}">
+                                        {{ booking.status.title() }}
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if booking.handyman %}
+                                        {{ booking.handyman.first_name }} {{ booking.handyman.last_name }}
+                                    {% else %}
+                                        <span class="text-muted">Not assigned</span>
+                                    {% endif %}
+                                </td>
+                                <td>${{ "%.2f"|format(booking.total_price) }}</td>
+                                <td>
+                                    {% if booking.status == 'pending' and not booking.admin_approved %}
+                                    <div class="btn-group" role="group">
+                                        <form method="POST" action="{{ url_for('approve_booking', booking_id=booking.id) }}" class="d-inline">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                <i class="fas fa-check me-1"></i>Approve
+                                            </button>
+                                        </form>
+                                        <form method="POST" action="{{ url_for('decline_booking', booking_id=booking.id) }}" class="d-inline">
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-times me-1"></i>Decline
+                                            </button>
+                                        </form>
+                                    </div>
+                                    {% elif booking.status == 'approved' and booking.admin_approved %}
+                                    <a href="{{ url_for('assign_handyman', booking_id=booking.id) }}"
+                                       class="btn btn-primary btn-sm">
+                                        <i class="fas fa-user-plus me-1"></i>Assign Handyman
+                                    </a>
+                                    {% else %}
+                                    <span class="text-muted">Processed</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {% if not bookings %}
+                <div class="text-center py-4">
+                    <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                    <h5>No bookings found</h5>
+                    <p class="text-muted">No bookings have been made yet.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

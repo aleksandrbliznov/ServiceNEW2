@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Assign Handyman - Service PRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('admin_bookings') }}">Manage Bookings</a></li>
+                <li class="breadcrumb-item active">Assign Handyman</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-user-plus me-2"></i>Assign Handyman
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h4>Booking Details</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Customer:</strong> {{ booking.user.first_name }} {{ booking.user.last_name }}</li>
+                            <li><strong>Service:</strong> {{ booking.service.name }}</li>
+                            <li><strong>Date:</strong> {{ booking.booking_date.strftime('%Y-%m-%d %H:%M') }}</li>
+                            <li><strong>Price:</strong> ${{ "%.2f"|format(booking.total_price) }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Special Requests</h4>
+                        <p>{{ booking.special_requests or 'None' }}</p>
+                    </div>
+                </div>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="handyman_id" class="form-label">Select Handyman</label>
+                        <select class="form-select" name="handyman_id" required>
+                            <option value="">Choose a handyman...</option>
+                            {% for handyman in handymen %}
+                            <option value="{{ handyman.id }}">{{ handyman.first_name }} {{ handyman.last_name }} ({{ handyman.username }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check me-2"></i>Assign Handyman & Approve Booking
+                        </button>
+                        <a href="{{ url_for('admin_bookings') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Bookings
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>Available Handymen
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if handymen %}
+                <div class="list-group">
+                    {% for handyman in handymen %}
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ handyman.first_name }} {{ handyman.last_name }}</h6>
+                            <small>{{ handyman.username }}</small>
+                        </div>
+                        <p class="mb-1">{{ handyman.email }}</p>
+                        <small>{{ handyman.phone }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-3">
+                    <i class="fas fa-users fa-2x text-muted mb-2"></i>
+                    <p class="text-muted">No approved handymen available.</p>
+                    <p class="text-muted small">Please approve some handyman registrations first.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

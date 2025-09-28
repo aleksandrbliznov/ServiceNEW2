@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('My Feedback') }} - Service PRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('handyman_dashboard') }}">{{ _('My Jobs') }}</a></li>
+                <li class="breadcrumb-item active">{{ _('Feedback') }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>{{ _('My Feedback') }}</h2>
+            <a href="{{ url_for('handyman_dashboard') }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i>{{ _('Back to Jobs') }}
+            </a>
+        </div>
+
+        {% if feedbacks %}
+        <div class="row">
+            {% for feedback in feedbacks %}
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="card feedback-card">
+                    <div class="card-body">
+                        <div class="feedback-header mb-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="customer-avatar me-3">
+                                        <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">{{ feedback.user.first_name }} {{ feedback.user.last_name }}</h6>
+                                        <small class="text-muted">{{ feedback.created_at.strftime('%Y-%m-%d') }}</small>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    {% for i in range(1, 6) %}
+                                    <i class="fas fa-star {{ 'text-warning' if i <= feedback.rating else 'text-muted' }}"></i>
+                                    {% endfor %}
+                                    <small class="ms-2">({{ feedback.rating }}/5)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-content">
+                            <p class="mb-2">{{ feedback.comment or _('No comment provided.') }}</p>
+                            <small class="text-muted">
+                                {{ _('Service') }}: {{ feedback.booking.service.name }} |
+                                {{ _('Date') }}: {{ feedback.booking.booking_date.strftime('%Y-%m-%d') }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Feedback Statistics -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>{{ _('Feedback Statistics') }}</h5>
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">{{ feedbacks|length }}</h3>
+                                    <p class="text-muted mb-0">{{ _('Total Reviews') }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-item">
+                                    <h3 class="text-warning">{{ "%.1f"|format(avg_rating) }}</h3>
+                                    <p class="text-muted mb-0">{{ _('Average Rating') }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-item">
+                                    <h3 class="text-success">{{ five_star_count }}</h3>
+                                    <p class="text-muted mb-0">{{ _('5-Star Reviews') }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-item">
+                                    <h3 class="text-info">{{ four_plus_count }}</h3>
+                                    <p class="text-muted mb-0">{{ _('4+ Star Reviews') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+         <div class="text-center py-5">
+             <i class="fas fa-comments fa-4x text-muted mb-4"></i>
+             <h4>{{ _('No feedback yet') }}</h4>
+             <p class="text-muted">{{ _('You haven\'t received any feedback from customers yet.') }}</p>
+             <p class="text-muted">{{ _('Complete some jobs to start receiving reviews!') }}</p>
+         </div>
+         {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.feedback-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feedback-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+    padding: 1rem;
+}
+
+.rating .fa-star {
+    font-size: 0.9rem;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Home') }} - Service PRO{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    Professional Services<br>
+                    <span class="text-gradient">At Your Fingertips</span>
+                </h1>
+                <p class="lead mb-4">
+                    Connect with trusted professionals for all your home service needs.<br>
+                    Quality workmanship, reliable service, and competitive prices.
+                </p>
+
+                {% if not current_user.is_authenticated %}
+                <div class="d-flex flex-wrap gap-3">
+                    <a class="btn btn-light btn-lg" href="{{ url_for('register') }}">
+                        <i class="fas fa-rocket me-2"></i>Find Services
+                    </a>
+                    <a class="btn btn-outline-light btn-lg" href="{{ url_for('login') }}">
+                        <i class="fas fa-handshake me-2"></i>Become a Provider
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <div class="hero-icon-container">
+                        <i class="fas fa-tools fa-6x opacity-75 mb-4"></i>
+                        <div class="hero-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-3">Meie teenused</h2>
+                <p class="lead text-muted">Professionaalsed teenused kõigi teie kodu hooldusvajaduste jaoks</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            {% for group in service_groups %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card h-100 shadow-sm animate-on-scroll">
+                    <div class="card-body p-4">
+                        <div class="feature-icon">
+                            {% if group.name.lower() == 'konditer' %}
+                                <i class="fas fa-birthday-cake"></i>
+                            {% elif group.name.lower() == 'ehitus' %}
+                                <i class="fas fa-hammer"></i>
+                            {% elif group.name.lower() == 'koristus' %}
+                                <i class="fas fa-broom"></i>
+                            {% else %}
+                                <i class="fas fa-th-large"></i>
+                            {% endif %}
+                        </div>
+
+                        <h5 class="card-title">{{ group.name }}</h5>
+
+                        {% if group.description %}
+                        <p class="card-text">{{ group.description }}</p>
+                        {% endif %}
+
+                        {% if current_user.is_authenticated and current_user.role == 'user' %}
+                        <a href="{{ url_for('services_by_group', group_id=group.id) }}" class="btn btn-primary w-100">
+                            <i class="fas fa-eye me-2"></i>View Services
+                        </a>
+                        {% elif not current_user.is_authenticated %}
+                        <p class="text-muted text-center mb-3">
+                            <a href="{{ url_for('login') }}" class="text-decoration-none">Log in</a> to view services
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if not service_groups %}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle me-2"></i>{{ _('No service categories available at the moment.') }}
+                    {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                    <a href="{{ url_for('add_service_group') }}" class="alert-link">{{ _('Add the first service group') }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold mb-3">Miks valida Service PRO?</h2>
+                <p class="lead text-muted">Me ühendame majaomanikke usaldusväärsete professionaalsete teenuseosutajatega</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Kontrollitud professionaalid</h5>
+                    <p class="text-muted">Kõik teenuseosutajad on taustakontrollitud ja kinnitatud teie meelerahu jaoks</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-star fa-2x text-warning"></i>
+                    </div>
+                    <h5 class="fw-bold">Kvaliteedi garantii</h5>
+                    <p class="text-muted">100% rahulolu garantii kõigil teenustel meie kvaliteedi tagamise programmiga</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-clock fa-2x text-info"></i>
+                    </div>
+                    <h5 class="fw-bold">Kiire teenindus</h5>
+                    <p class="text-muted">Kiired reageerimisajad ja paindlik ajakava teie kiire elustiili jaoks</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-headset fa-2x text-success"></i>
+                    </div>
+                    <h5 class="fw-bold">24/7 tugi</h5>
+                    <p class="text-muted">Ööpäevaringne klienditugi, et aidata teid alati, kui vajate abi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card animate-on-scroll">
+                    <i class="fas fa-users text-primary"></i>
+                    <h3>500+</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card animate-on-scroll">
+                    <i class="fas fa-user-tie text-success"></i>
+                    <h3>100+</h3>
+                    <p>Professionals</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card animate-on-scroll">
+                    <i class="fas fa-th-large text-info"></i>
+                    <h3>50+</h3>
+                    <p>Service Types</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card animate-on-scroll">
+                    <i class="fas fa-headset text-warning"></i>
+                    <h3>24/7</h3>
+                    <p>Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold text-white mb-3">Valmis alustama?</h2>
+                <p class="lead text-white-50 mb-4">Liituge tuhandete rahulolevate klientidega ja leidke oma ideaalne teenuseosutaja juba täna</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url_for('register') }}" class="btn btn-light btn-lg px-5">
+                        <i class="fas fa-rocket me-2"></i>Alusta kohe
+                    </a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-5">
+                        <i class="fas fa-phone me-2"></i>{{ _('Contact Us') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

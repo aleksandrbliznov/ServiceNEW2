@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('My Jobs') }} - Service PRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>{{ _('My Jobs') }}</h2>
+        <p>{{ current_user.first_name }}! {{ _('Here are your assigned jobs.') }}</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-tools me-2"></i>{{ _('My Assigned Jobs') }}
+                </h4>
+            </div>
+            <div class="card-body">
+                {% if bookings %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Customer') }}</th>
+                                <th>{{ _('Service') }}</th>
+                                <th>{{ _('Date') }}</th>
+                                <th>{{ _('Status') }}</th>
+                                <th>{{ _('Price') }}</th>
+                                <th>{{ _('Special Requests') }}</th>
+                                <th>{{ _('Actions') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking in bookings %}
+                            <tr>
+                                <td>{{ booking.user.first_name }} {{ booking.user.last_name }}</td>
+                                <td>{{ booking.service.name }}</td>
+                                <td>{{ booking.booking_date.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>
+                                    <span class="badge bg-{{ 'success' if booking.status == 'approved' else ('primary' if booking.status == 'in_progress' else 'warning') }}">
+                                        {{ booking.status.title() }}
+                                    </span>
+                                </td>
+                                <td>${{ "%.2f"|format(booking.total_price) }}</td>
+                                <td>
+                                    {% if booking.special_requests %}
+                                    <span title="{{ booking.special_requests }}">📝</span>
+                                    {% else %}
+                                    <span class="text-muted">{{ _('None') }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if booking.status == 'approved' %}
+                                    <form method="POST" action="{{ url_for('update_booking_status', booking_id=booking.id) }}" class="d-inline">
+                                        <input type="hidden" name="status" value="in_progress">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-play me-1"></i>{{ _('Start Job') }}
+                                        </button>
+                                    </form>
+                                    {% elif booking.status == 'in_progress' %}
+                                    <form method="POST" action="{{ url_for('update_booking_status', booking_id=booking.id) }}" class="d-inline">
+                                        <input type="hidden" name="status" value="completed">
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            <i class="fas fa-check me-1"></i>{{ _('Complete Job') }}
+                                        </button>
+                                    </form>
+                                    {% elif booking.status == 'completed' %}
+                                    <span class="text-success">
+                                        <i class="fas fa-check-circle me-1"></i>{{ _('Completed') }}
+                                    </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+                    <h5>{{ _('No jobs assigned yet') }}</h5>
+                    <p class="text-muted">{{ _('You don\'t have any assigned jobs at the moment.') }}</p>
+                    <p class="text-muted">{{ _('Jobs will appear here once an admin assigns them to you.') }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Job Statistics -->
+{% if bookings %}
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-calendar-check fa-2x mb-2"></i>
+                <h3>{{ bookings|selectattr('status', 'equalto', 'approved')|list|length }}</h3>
+                <p>{{ _('Approved Jobs') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-cogs fa-2x mb-2"></i>
+                <h3>{{ bookings|selectattr('status', 'equalto', 'in_progress')|list|length }}</h3>
+                <p>{{ _('In Progress') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                <h3>{{ bookings|selectattr('status', 'equalto', 'completed')|list|length }}</h3>
+                <p>{{ _('Completed') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-dollar-sign fa-2x mb-2"></i>
+                <h3>${{ "%.2f"|format(bookings|selectattr('status', 'equalto', 'completed')|map(attribute='total_price')|sum) }}</h3>
+                <p>{{ _('Earnings') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Quick Actions -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-tachometer-alt me-2"></i>{{ _('Quick Actions') }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{{ url_for('handyman_feedback') }}" class="btn btn-outline-info btn-block">
+                            <i class="fas fa-star me-2"></i>{{ _('View My Feedback') }}
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-block">
+                            <i class="fas fa-th-large me-2"></i>{{ _('Browse Services') }}
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ url_for('logout') }}" class="btn btn-outline-secondary btn-block">
+                            <i class="fas fa-sign-out-alt me-2"></i>{{ _('Logout') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

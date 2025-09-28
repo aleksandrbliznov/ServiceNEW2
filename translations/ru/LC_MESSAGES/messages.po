@@ -1,0 +1,283 @@
+# Russian translations for Service PRO
+msgid ""
+msgstr ""
+"Project-Id-Version: Service PRO\n"
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Welcome to Service PRO"
+msgstr "Добро пожаловать в Service PRO"
+
+msgid "Find trusted professionals for all your home service needs."
+msgstr "Найдите надежных профессионалов для всех ваших домашних нужд."
+
+msgid "Quality service at your fingertips!"
+msgstr "Качественное обслуживание у вас под рукой!"
+
+msgid "Get Started"
+msgstr "Начать"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Our Services"
+msgstr "Наши услуги"
+
+msgid "View All Services"
+msgstr "Посмотреть все услуги"
+
+msgid "Book Service"
+msgstr "Забронировать услугу"
+
+msgid "Please login to book services"
+msgstr "Пожалуйста, войдите для бронирования услуг"
+
+msgid "About Service PRO"
+msgstr "О Service PRO"
+
+msgid "We connect homeowners with trusted, professional service providers."
+msgstr "Мы связываем домовладельцев с надежными профессиональными поставщиками услуг."
+
+msgid "Our platform ensures quality, reliability, and peace of mind for all your home service needs."
+msgstr "Наша платформа обеспечивает качество, надежность и спокойствие для всех ваших домашних нужд."
+
+msgid "Verified Professionals"
+msgstr "Проверенные профессионалы"
+
+msgid "All service providers are background-checked and verified"
+msgstr "Все поставщики услуг проверены и верифицированы"
+
+msgid "Quality Guarantee"
+msgstr "Гарантия качества"
+
+msgid "100% satisfaction guarantee on all services"
+msgstr "100% гарантия удовлетворенности на все услуги"
+
+msgid "Fast Service"
+msgstr "Быстрое обслуживание"
+
+msgid "Quick response times and flexible scheduling"
+msgstr "Быстрое время отклика и гибкое планирование"
+
+msgid "24/7 Support"
+msgstr "Поддержка 24/7"
+
+msgid "Round-the-clock customer support"
+msgstr "Круглосуточная поддержка клиентов"
+
+msgid "Learn More About Us"
+msgstr "Узнайте больше о нас"
+
+msgid "What Our Customers Say"
+msgstr "Что говорят наши клиенты"
+
+msgid "Don't just take our word for it - hear from our satisfied customers"
+msgstr "Не верьте нам на слово - послушайте наших довольных клиентов"
+
+msgid "Ready to Get Started?"
+msgstr "Готовы начать?"
+
+msgid "Join thousands of satisfied customers and find your perfect service provider today"
+msgstr "Присоединяйтесь к тысячам довольных клиентов и найдите своего идеального поставщика услуг уже сегодня"
+
+msgid "Contact Us"
+msgstr "Свяжитесь с нами"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "My Dashboard"
+msgstr "Моя панель"
+
+msgid "Admin Panel"
+msgstr "Панель администратора"
+
+msgid "My Jobs"
+msgstr "Мои работы"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Manage Services"
+msgstr "Управление услугами"
+
+msgid "Add New Service"
+msgstr "Добавить новую услугу"
+
+msgid "Service Name"
+msgstr "Название услуги"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Duration (hours)"
+msgstr "Продолжительность (часы)"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Add Service"
+msgstr "Добавить услугу"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Update Service"
+msgstr "Обновить услугу"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Are you sure you want to delete this service?"
+msgstr "Вы уверены, что хотите удалить эту услугу?"
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "Inactive"
+msgstr "Неактивный"
+
+msgid "No services found"
+msgstr "Услуги не найдены"
+
+msgid "No services have been created yet."
+msgstr "Услуги еще не созданы."
+
+msgid "Add First Service"
+msgstr "Добавить первую услугу"
+
+msgid "Total Reviews"
+msgstr "Всего отзывов"
+
+msgid "Average Rating"
+msgstr "Средний рейтинг"
+
+msgid "5-Star Reviews"
+msgstr "Отзывы 5 звезд"
+
+msgid "4+ Star Reviews"
+msgstr "Отзывы 4+ звезд"
+
+msgid "No feedback yet"
+msgstr "Отзывов пока нет"
+
+msgid "You haven't received any feedback from customers yet."
+msgstr "Вы еще не получили отзывов от клиентов."
+
+msgid "Complete some jobs to start receiving reviews!"
+msgstr "Выполните несколько работ, чтобы начать получать отзывы!"
+
+msgid "View My Feedback"
+msgstr "Посмотреть мои отзывы"
+
+msgid "Browse Services"
+msgstr "Просмотреть услуги"
+
+msgid "My Bookings"
+msgstr "Мои бронирования"
+
+msgid "Quick Actions"
+msgstr "Быстрые действия"
+
+msgid "Browse All Services"
+msgstr "Просмотреть все услуги"
+
+msgid "Booking Statistics"
+msgstr "Статистика бронирований"
+
+msgid "Total Bookings"
+msgstr "Всего бронирований"
+
+msgid "Pending"
+msgstr "В ожидании"
+
+msgid "Approved"
+msgstr "Одобрено"
+
+msgid "Completed"
+msgstr "Завершено"
+
+msgid "Waiting for approval"
+msgstr "Ожидает одобрения"
+
+msgid "In progress"
+msgstr "В процессе"
+
+msgid "Leave Feedback"
+msgstr "Оставить отзыв"
+
+msgid "Submit Feedback"
+msgstr "Отправить отзыв"
+
+msgid "Back to Dashboard"
+msgstr "Назад к панели"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Share your experience with this service..."
+msgstr "Поделитесь своим опытом с этой услугой..."
+
+msgid "Your feedback helps other customers and improves service quality."
+msgstr "Ваш отзыв помогает другим клиентам и улучшает качество обслуживания."
+
+msgid "Thank you for your feedback!"
+msgstr "Спасибо за ваш отзыв!"
+
+msgid "You have already left feedback for this booking."
+msgstr "Вы уже оставили отзыв для этого бронирования."
+
+msgid "Access denied."
+msgstr "Доступ запрещен."
+
+msgid "Registration successful! Please login."
+msgstr "Регистрация прошла успешно! Пожалуйста, войдите."
+
+msgid "Login successful!"
+msgstr "Успешный вход!"
+
+msgid "You have been logged out."
+msgstr "Вы вышли из системы."
+
+msgid "Service added successfully!"
+msgstr "Услуга успешно добавлена!"
+
+msgid "Service updated successfully!"
+msgstr "Услуга успешно обновлена!"
+
+msgid "Service deleted successfully!"
+msgstr "Услуга успешно удалена!"
+
+msgid "Booking approved successfully!"
+msgstr "Бронирование успешно одобрено!"
+
+msgid "Booking declined."
+msgstr "Бронирование отклонено."
+
+msgid "Handyman assigned and booking approved."
+msgstr "Мастер назначен и бронирование одобрено."
+
+msgid "Booking status updated."
+msgstr "Статус бронирования обновлен."
+
+msgid "Service booked successfully! Waiting for admin approval."
+msgstr "Услуга успешно забронирована! Ожидает одобрения администратора."
+
+msgid "Invalid username or password."
+msgstr "Неверное имя пользователя или пароль."
+
+msgid "Your handyman account is pending approval by admin."
+msgstr "Ваш аккаунт мастера ожидает одобрения администратора."

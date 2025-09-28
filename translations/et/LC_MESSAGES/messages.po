@@ -1,0 +1,1024 @@
+# Estonian translations for Service PRO
+msgid ""
+msgstr ""
+"Project-Id-Version: Service PRO\n"
+"Language: et\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Welcome to Service PRO"
+msgstr "Tere tulemast Service PRO-sse"
+
+msgid "Find trusted professionals for all your home service needs."
+msgstr "Leidke usaldusväärseid professionaale kõigi teie kodu teenuste vajaduste jaoks."
+
+msgid "Quality service at your fingertips!"
+msgstr "Kvaliteetne teenindus teie käeulatuses!"
+
+msgid "Get Started"
+msgstr "Alusta"
+
+msgid "Login"
+msgstr "Logi sisse"
+
+msgid "Our Services"
+msgstr "Meie teenused"
+
+msgid "View All Services"
+msgstr "Vaata kõiki teenuseid"
+
+msgid "Book Service"
+msgstr "Broneeri teenus"
+
+msgid "Please login to book services"
+msgstr "Palun logige sisse teenuste broneerimiseks"
+
+msgid "About Service PRO"
+msgstr "Service PRO kohta"
+
+msgid "We connect homeowners with trusted, professional service providers."
+msgstr "Me ühendame majaomanikke usaldusväärsete professionaalsete teenuseosutajatega."
+
+msgid "Our platform ensures quality, reliability, and peace of mind for all your home service needs."
+msgstr "Meie platvorm tagab kvaliteedi, usaldusväärsuse ja meelerahu kõigi teie kodu teenuste vajaduste jaoks."
+
+msgid "Verified Professionals"
+msgstr "Kontrollitud professionaalid"
+
+msgid "All service providers are background-checked and verified"
+msgstr "Kõik teenuseosutajad on taustakontrollitud ja kinnitatud"
+
+msgid "Quality Guarantee"
+msgstr "Kvaliteedi garantii"
+
+msgid "100% satisfaction guarantee on all services"
+msgstr "100% rahulolu garantii kõigil teenustel"
+
+msgid "Fast Service"
+msgstr "Kiire teenindus"
+
+msgid "Quick response times and flexible scheduling"
+msgstr "Kiired reageerimisajad ja paindlik ajakava"
+
+msgid "24/7 Support"
+msgstr "24/7 tugi"
+
+msgid "Round-the-clock customer support"
+msgstr "Ööpäevaringne klienditugi"
+
+msgid "Learn More About Us"
+msgstr "Lisateave meie kohta"
+
+msgid "What Our Customers Say"
+msgstr "Mida meie kliendid ütlevad"
+
+msgid "Don't just take our word for it - hear from our satisfied customers"
+msgstr "Ärge võtke meie sõna peale - kuulake meie rahulolevaid kliente"
+
+msgid "Ready to Get Started?"
+msgstr "Valmis alustama?"
+
+msgid "Join thousands of satisfied customers and find your perfect service provider today"
+msgstr "Liituge tuhandete rahulolevate klientidega ja leidke oma ideaalne teenuseosutaja juba täna"
+
+msgid "Contact Us"
+msgstr "Võtke meiega ühendust"
+
+msgid "Home"
+msgstr "Avaleht"
+
+msgid "Register"
+msgstr "Registreeru"
+
+msgid "My Dashboard"
+msgstr "Minu töölaud"
+
+msgid "Admin Panel"
+msgstr "Admini paneel"
+
+msgid "My Jobs"
+msgstr "Minu tööd"
+
+msgid "Logout"
+msgstr "Logi välja"
+
+msgid "Manage Services"
+msgstr "Halda teenuseid"
+
+msgid "Add New Service"
+msgstr "Lisa uus teenus"
+
+msgid "Service Name"
+msgstr "Teenuse nimi"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Duration (hours)"
+msgstr "Kestus (tunnid)"
+
+msgid "Category"
+msgstr "Kategooria"
+
+msgid "Add Service"
+msgstr "Lisa teenus"
+
+msgid "Cancel"
+msgstr "Tühista"
+
+msgid "Monday"
+msgstr "Esmaspäev"
+
+msgid "Tuesday"
+msgstr "Teisipäev"
+
+msgid "Wednesday"
+msgstr "Kolmapäev"
+
+msgid "Thursday"
+msgstr "Neljapäev"
+
+msgid "Friday"
+msgstr "Reede"
+
+msgid "Saturday"
+msgstr "Laupäev"
+
+msgid "Sunday"
+msgstr "Pühapäev"
+
+msgid "Day"
+msgstr "Päev"
+
+msgid "Start Time"
+msgstr "Algusaeg"
+
+msgid "End Time"
+msgstr "Lõpuaeg"
+
+msgid "Save Hours"
+msgstr "Salvesta tunnid"
+
+msgid "My Feedback"
+msgstr "Minu tagasiside"
+
+msgid "Back to Jobs"
+msgstr "Tagasi tööde juurde"
+
+msgid "No comment provided."
+msgstr "Kommentaari ei ole esitatud."
+
+msgid "Feedback Statistics"
+msgstr "Tagasiside statistika"
+
+msgid "Total Reviews"
+msgstr "Kokku arvustusi"
+
+msgid "Average Rating"
+msgstr "Keskmine hinne"
+
+msgid "5-Star Reviews"
+msgstr "5-tärni arvustused"
+
+msgid "4+ Star Reviews"
+msgstr "4+ tärni arvustused"
+
+msgid "No feedback yet"
+msgstr "Tagasisidet veel pole"
+
+msgid "You haven't received any feedback from customers yet."
+msgstr "Te pole veel klientidelt tagasisidet saanud."
+
+msgid "Complete some jobs to start receiving reviews!"
+msgstr "Tehke mõned tööd, et hakata arvustusi saama!"
+
+msgid "Booking Confirmation - Service PRO"
+msgstr "Broneeringu kinnitus - Service PRO"
+
+msgid "Dear"
+msgstr "Lugupeetud"
+
+msgid "Your booking has been placed successfully!"
+msgstr "Teie broneering on edukalt esitatud!"
+
+msgid "Booking Details:"
+msgstr "Broneeringu üksikasjad:"
+
+msgid "Service:"
+msgstr "Teenus:"
+
+msgid "Date & Time:"
+msgstr "Kuupäev ja kellaaeg:"
+
+msgid "Price:"
+msgstr "Hind:"
+
+msgid "Status: Pending admin approval"
+msgstr "Staatus: Ootab admini kinnitust"
+
+msgid "You will receive another email once your booking is approved and a handyman is assigned."
+msgstr "Te saate teise e-kirja, kui teie broneering on kinnitatud ja meister on määratud."
+
+msgid "Thank you for using Service PRO!"
+msgstr "Tänan, et kasutate Service PRO-d!"
+
+msgid "New Booking Placed - Service PRO"
+msgstr "Uus broneering esitatud - Service PRO"
+
+msgid "New booking has been placed:"
+msgstr "Uus broneering on esitatud:"
+
+msgid "Customer:"
+msgstr "Klient:"
+
+msgid "Please review and approve this booking in the admin panel."
+msgstr "Palun vaadake läbi ja kinnitage see broneering admini paneelis."
+
+msgid "Password Reset Request"
+msgstr "Parooli lähtestamise taotlus"
+
+msgid "To reset your password, visit the following link:"
+msgstr "Parooli lähtestamiseks külastage järgmist linki:"
+
+msgid "If you did not make this request, simply ignore this email."
+msgstr "Kui te ei teinud seda taotlust, lihtsalt ignoreerige seda e-kirja."
+
+msgid "Password reset instructions have been sent to your email."
+msgstr "Parooli lähtestamise juhised on saadetud teie e-postile."
+
+msgid "If an account with that email exists, a password reset link has been sent."
+msgstr "Kui selle e-postiga konto eksisteerib, on parooli lähtestamise link saadetud."
+
+msgid "Error sending email. Please try again later."
+msgstr "Viga e-kirja saatmisel. Palun proovige hiljem uuesti."
+
+msgid "Invalid or expired reset token."
+msgstr "Vigane või aegunud lähtestamise token."
+
+msgid "Your password has been updated!"
+msgstr "Teie parool on uuendatud!"
+
+msgid "Service"
+msgstr "Teenus"
+
+msgid "Date & Time"
+msgstr "Kuupäev ja kellaaeg"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Actions"
+msgstr "Tegevused"
+
+msgid "hours"
+msgstr "tundi"
+
+msgid "Home"
+msgstr "Avaleht"
+
+msgid "Get Started"
+msgstr "Alusta"
+
+msgid "to book services"
+msgstr "teenuste broneerimiseks"
+
+msgid "Book Service"
+msgstr "Broneeri teenus"
+
+msgid "No services available at the moment."
+msgstr "Hetkel teenuseid ei ole saadaval."
+
+msgid "Add the first service"
+msgstr "Lisa esimene teenus"
+
+msgid "Our Services"
+msgstr "Meie teenused"
+
+msgid "Professional services for all your home maintenance needs"
+msgstr "Professionaalsed teenused kõigi teie kodu hooldusvajaduste jaoks"
+
+msgid "Why Choose Service PRO?"
+msgstr "Miks valida Service PRO?"
+
+msgid "We connect homeowners with trusted, professional service providers"
+msgstr "Me ühendame majaomanikke usaldusväärsete professionaalsete teenuseosutajatega"
+
+msgid "All service providers are background-checked and verified for your peace of mind"
+msgstr "Kõik teenuseosutajad on taustakontrollitud ja kinnitatud teie meelerahu jaoks"
+
+msgid "100% satisfaction guarantee on all services with our quality assurance program"
+msgstr "100% rahulolu garantii kõigil teenustel meie kvaliteedi tagamise programmiga"
+
+msgid "Quick response times and flexible scheduling to fit your busy lifestyle"
+msgstr "Kiired reageerimisajad ja paindlik ajakava teie kiire elustiili jaoks"
+
+msgid "Round-the-clock customer support to help you whenever you need assistance"
+msgstr "Ööpäevaringne klienditugi, et aidata teid alati, kui vajate abi"
+
+msgid "Ready to Get Started?"
+msgstr "Valmis alustama?"
+
+msgid "Join thousands of satisfied customers and find your perfect service provider today"
+msgstr "Liituge tuhandete rahulolevate klientidega ja leidke oma ideaalne teenuseosutaja juba täna"
+
+msgid "Get Started Now"
+msgstr "Alusta kohe"
+
+msgid "Contact Us"
+msgstr "Võtke meiega ühendust"
+
+msgid "My Dashboard"
+msgstr "Minu töölaud"
+
+msgid "Manage your bookings and service requests"
+msgstr "Halda oma broneeringuid ja teenuse taotlusi"
+
+msgid "Date & Time"
+msgstr "Kuupäev ja kellaaeg"
+
+msgid "Actions"
+msgstr "Tegevused"
+
+msgid "No bookings yet"
+msgstr "Broneeringuid veel pole"
+
+msgid "Browse All Services"
+msgstr "Sirvi kõiki teenuseid"
+
+msgid "No recent activity"
+msgstr "Hiljutist tegevust pole"
+
+msgid "Manage your Service PRO platform"
+msgstr "Halda oma Service PRO platvormi"
+
+msgid "handyman registration(s) pending approval."
+msgstr "meistri registreerimine(id) ootab kinnitust."
+
+msgid "No pending handyman approvals."
+msgstr "Ootel meistrite kinnitusi pole."
+
+msgid "booking(s) waiting for approval."
+msgstr "broneering(ud) ootab kinnitust."
+
+msgid "No pending bookings to review."
+msgstr "Ootel broneeringuid ülevaatamiseks pole."
+
+msgid "Review Pending Users"
+msgstr "Vaata ootel kasutajaid"
+
+msgid "Review Pending Bookings"
+msgstr "Vaata ootel broneeringuid"
+
+msgid "All caught up!"
+msgstr "Kõik on korras!"
+
+msgid "All set!"
+msgstr "Kõik on valmis!"
+
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Duration"
+msgstr "Kestus"
+
+msgid "Add First Service"
+msgstr "Lisa esimene teenus"
+
+msgid "Update Service"
+msgstr "Uuenda teenus"
+
+msgid "Edit"
+msgstr "Muuda"
+
+msgid "Delete"
+msgstr "Kustuta"
+
+msgid "Are you sure you want to delete this service?"
+msgstr "Kas olete kindel, et soovite selle teenuse kustutada?"
+
+msgid "Active"
+msgstr "Aktiivne"
+
+msgid "Inactive"
+msgstr "Mitteaktiivne"
+
+msgid "No services found"
+msgstr "Teenuseid ei leitud"
+
+msgid "No services have been created yet."
+msgstr "Ühtegi teenust pole veel loodud."
+
+msgid "Add First Service"
+msgstr "Lisa esimene teenus"
+
+msgid "Edit Service"
+msgstr "Muuda teenus"
+
+msgid "Update Service"
+msgstr "Uuenda teenus"
+
+msgid "Starting Price"
+msgstr "Alghind"
+
+msgid "Happy Customers"
+msgstr "Rahulolevad kliendid"
+
+msgid "Service Providers"
+msgstr "Teenuseosutajad"
+
+msgid "Jobs Completed"
+msgstr "Tööd tehtud"
+
+msgid "Average Rating"
+msgstr "Keskmine hinne"
+
+msgid "Total Reviews"
+msgstr "Kokku arvustusi"
+
+msgid "Average Rating"
+msgstr "Keskmine hinne"
+
+msgid "Your trusted platform connecting customers with professional service providers."
+msgstr "Teie usaldusväärne platvorm, mis ühendab kliente professionaalsete teenuseosutajatega."
+
+msgid "Quality service at your fingertips."
+msgstr "Kvaliteetne teenindus teie käeulatuses."
+
+msgid "All rights reserved."
+msgstr "Kõik õigused kaitstud."
+
+msgid "Made with"
+msgstr "Valmistatud"
+
+msgid "for better service"
+msgstr "parema teeninduse jaoks"
+
+msgid "123 Service Street, City, State 12345"
+msgstr "123 Teenuse tänav, Linn, Maakond 12345"
+
+msgid "+1 (555) 123-4567"
+msgstr "+1 (555) 123-4567"
+
+msgid "info@servicepro.com"
+msgstr "info@servicepro.com"
+
+msgid "5-Star Reviews"
+msgstr "5-tärni arvustused"
+
+msgid "4+ Star Reviews"
+msgstr "4+ tärni arvustused"
+
+msgid "No feedback yet"
+msgstr "Tagasisidet veel pole"
+
+msgid "You haven't received any feedback from customers yet."
+msgstr "Te pole veel klientidelt tagasisidet saanud."
+
+msgid "Complete some jobs to start receiving reviews!"
+msgstr "Tehke mõned tööd, et hakata arvustusi saama!"
+
+msgid "Choose a Service Category"
+msgstr "Valige teenuse kategooria"
+
+msgid "View Services"
+msgstr "Vaata teenuseid"
+
+msgid "No service categories available"
+msgstr "Teenuse kategooriaid ei ole saadaval"
+
+msgid "Service categories will be added soon. Please check back later."
+msgstr "Teenuse kategooriad lisatakse peagi. Palun kontrollige hiljem uuesti."
+
+msgid "Services"
+msgstr "Teenused"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Duration"
+msgstr "Kestus"
+
+msgid "Provider"
+msgstr "Osutaja"
+
+msgid "Example Work"
+msgstr "Näidistöö"
+
+msgid "Example work"
+msgstr "Näidistöö"
+
+msgid "Book Service"
+msgstr "Broneeri teenus"
+
+msgid "No services available in this category"
+msgstr "Selles kategoorias teenuseid ei ole saadaval"
+
+msgid "Services in this category will be added soon. Please check back later."
+msgstr "Sellesse kategooriasse lisatakse teenuseid peagi. Palun kontrollige hiljem uuesti."
+
+msgid "Back to Categories"
+msgstr "Tagasi kategooriate juurde"
+
+msgid "View My Feedback"
+msgstr "Vaata minu tagasisidet"
+
+msgid "Status"
+msgstr "Staatus"
+
+msgid "Actions"
+msgstr "Tegevused"
+
+msgid "Feedback"
+msgstr "Tagasiside"
+
+msgid "Waiting for approval"
+msgstr "Ootab kinnitust"
+
+msgid "In progress"
+msgstr "Töös"
+
+msgid "Completed"
+msgstr "Lõpetatud"
+
+msgid "Service booked successfully! Waiting for admin approval."
+msgstr "Teenus broneeritud edukalt! Ootab admini kinnitust."
+
+msgid "Booking failed. Please try again."
+msgstr "Broneerimine ebaõnnestus. Palun proovige uuesti."
+
+msgid "Service not found."
+msgstr "Teenust ei leitud."
+
+msgid "Browse Services"
+msgstr "Sirvi teenuseid"
+
+msgid "My Bookings"
+msgstr "Minu broneeringud"
+
+msgid "Quick Actions"
+msgstr "Kiirtegevused"
+
+msgid "Browse All Services"
+msgstr "Sirvi kõiki teenuseid"
+
+msgid "Booking Statistics"
+msgstr "Broneeringu statistika"
+
+msgid "Total Bookings"
+msgstr "Kokku broneeringuid"
+
+msgid "Pending"
+msgstr "Ootel"
+
+msgid "Approved"
+msgstr "Kinnitatud"
+
+msgid "Completed"
+msgstr "Lõpetatud"
+
+msgid "Waiting for approval"
+msgstr "Ootab kinnitust"
+
+msgid "In progress"
+msgstr "Töös"
+
+msgid "Leave Feedback"
+msgstr "Jäta tagasiside"
+
+msgid "Home"
+msgstr "Avaleht"
+
+msgid "Book Service"
+msgstr "Broneeri teenus"
+
+msgid "Price:"
+msgstr "Hind:"
+
+msgid "Duration:"
+msgstr "Kestus:"
+
+msgid "Category:"
+msgstr "Kategooria:"
+
+msgid "Service is pre-selected based on your choice."
+msgstr "Teenus on eelnevalt valitud teie valiku põhjal."
+
+msgid "Please select your preferred date and time."
+msgstr "Palun valige oma eelistatud kuupäev ja kellaaeg."
+
+msgid "Any special requirements or notes for the service."
+msgstr "Erinõuded või märkused teenuse kohta."
+
+msgid "Confirm Booking"
+msgstr "Kinnita broneering"
+
+msgid "Booking Information"
+msgstr "Broneeringu info"
+
+msgid "What's Next?"
+msgstr "Mis edasi?"
+
+msgid "Submit your booking request"
+msgstr "Esitage oma broneeringu taotlus"
+
+msgid "Admin reviews and approves your request"
+msgstr "Admin vaatab läbi ja kinnitab teie taotluse"
+
+msgid "A qualified handyman is assigned"
+msgstr "Kvalifitseeritud meister määratakse"
+
+msgid "Service is completed"
+msgstr "Teenus on lõpetatud"
+
+msgid "Need Help?"
+msgstr "Vajate abi?"
+
+msgid "If you have any questions about this service, please contact our support team."
+msgstr "Kui teil on selle teenuse kohta küsimusi, võtke palun ühendust meie tugitiimiga."
+
+msgid "Password Reset Request"
+msgstr "Parooli lähtestamise taotlus"
+
+msgid "Reset Your Password"
+msgstr "Lähtestage oma parool"
+
+msgid "Enter your email address and we will send you a link to reset your password."
+msgstr "Sisestage oma e-posti aadress ja me saadame teile lingi parooli lähtestamiseks."
+
+msgid "Back to Login"
+msgstr "Tagasi sisselogimisele"
+
+msgid "Reset Password"
+msgstr "Lähtesta parool"
+
+msgid "Set New Password"
+msgstr "Määra uus parool"
+
+msgid "Enter your new password below."
+msgstr "Sisestage oma uus parool allpool."
+
+msgid "Welcome back"
+msgstr "Tere tulemast tagasi"
+
+msgid "Manage your bookings and service requests"
+msgstr "Halda oma broneeringuid ja teenuse taotlusi"
+
+msgid "Total Bookings"
+msgstr "Kokku broneeringuid"
+
+msgid "My Bookings"
+msgstr "Minu broneeringud"
+
+msgid "Quick Actions"
+msgstr "Kiirtegevused"
+
+msgid "Browse All Services"
+msgstr "Sirvi kõiki teenuseid"
+
+msgid "Recent Activity"
+msgstr "Hiljutine tegevus"
+
+msgid "No bookings yet"
+msgstr "Broneeringuid veel pole"
+
+msgid "You haven't made any service bookings yet."
+msgstr "Te pole veel ühtegi teenuse broneeringut teinud."
+
+msgid "Browse Services"
+msgstr "Sirvi teenuseid"
+
+msgid "Service is pre-selected based on your choice."
+msgstr "Teenus on eelnevalt valitud teie valiku põhjal."
+
+msgid "Preferred Date & Time"
+msgstr "Eelistatud kuupäev ja kellaaeg"
+
+msgid "Special Requests"
+msgstr "Erinõuded"
+
+msgid "hours"
+msgstr "tundi"
+
+msgid "General"
+msgstr "Üldine"
+
+msgid "My Jobs"
+msgstr "Minu tööd"
+
+msgid "Welcome back"
+msgstr "Tere tulemast tagasi"
+
+msgid "Here are your assigned jobs."
+msgstr "Siin on teie määratud tööd."
+
+msgid "My Assigned Jobs"
+msgstr "Minu määratud tööd"
+
+msgid "Customer"
+msgstr "Klient"
+
+msgid "Date"
+msgstr "Kuupäev"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Special Requests"
+msgstr "Erinõuded"
+
+msgid "None"
+msgstr "Puudub"
+
+msgid "Start Job"
+msgstr "Alusta tööd"
+
+msgid "Complete Job"
+msgstr "Lõpeta töö"
+
+msgid "No jobs assigned yet"
+msgstr "Töid pole veel määratud"
+
+msgid "You don't have any assigned jobs at the moment."
+msgstr "Hetkel pole teil määratud ühtegi tööd."
+
+msgid "Jobs will appear here once an admin assigns them to you."
+msgstr "Tööd ilmuvad siia, kui admin need teile määrab."
+
+msgid "Approved Jobs"
+msgstr "Kinnitatud tööd"
+
+msgid "In Progress"
+msgstr "Töös"
+
+msgid "Earnings"
+msgstr "Tulud"
+
+msgid "View My Feedback"
+msgstr "Vaata minu tagasisidet"
+
+msgid "Submit Feedback"
+msgstr "Esita tagasiside"
+
+msgid "Back to Dashboard"
+msgstr "Tagasi töölauale"
+
+msgid "Rating"
+msgstr "Hinne"
+
+msgid "Comment"
+msgstr "Kommentaar"
+
+msgid "Share your experience with this service..."
+msgstr "Jagage oma kogemust selle teenusega..."
+
+msgid "Your feedback helps other customers and improves service quality."
+msgstr "Teie tagasiside aitab teisi kliente ja parandab teenuse kvaliteeti."
+
+msgid "Thank you for your feedback!"
+msgstr "Tänan teie tagasiside eest!"
+
+msgid "You have already left feedback for this booking."
+msgstr "Te olete selle broneeringu kohta juba tagasiside jätnud."
+
+msgid "Access denied."
+msgstr "Juurdepääs keelatud."
+
+msgid "Registration successful! Please login."
+msgstr "Registreerimine õnnestus! Palun logige sisse."
+
+msgid "Login successful!"
+msgstr "Sisselogimine õnnestus!"
+
+msgid "You have been logged out."
+msgstr "Te olete välja logitud."
+
+msgid "Service added successfully!"
+msgstr "Teenus lisatud edukalt!"
+
+msgid "Service updated successfully!"
+msgstr "Teenus uuendatud edukalt!"
+
+msgid "Service deleted successfully!"
+msgstr "Teenus kustutatud edukalt!"
+
+msgid "Booking approved successfully!"
+msgstr "Broneering kinnitatud edukalt!"
+
+msgid "Booking declined."
+msgstr "Broneering tagasi lükatud."
+
+msgid "Handyman assigned and booking approved."
+msgstr "Meister määratud ja broneering kinnitatud."
+
+msgid "Booking status updated."
+msgstr "Broneeringu staatus uuendatud."
+
+msgid "Service booked successfully! Waiting for admin approval."
+msgstr "Teenus broneeritud edukalt! Ootab admini kinnitust."
+
+msgid "Invalid username or password."
+msgstr "Vale kasutajanimi või parool."
+
+msgid "Your handyman account is pending approval by admin."
+msgstr "Teie meistri konto ootab admini kinnitust."
+
+msgid "Username"
+msgstr "Kasutajanimi"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Password"
+msgstr "Parool"
+
+msgid "Confirm Password"
+msgstr "Kinnita parool"
+
+msgid "First Name"
+msgstr "Eesnimi"
+
+msgid "Last Name"
+msgstr "Perekonnanimi"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "I want to register as"
+msgstr "Ma tahan registreeruda kui"
+
+msgid "Customer"
+msgstr "Klient"
+
+msgid "Service Provider"
+msgstr "Teenuseosutaja"
+
+msgid "Register"
+msgstr "Registreeru"
+
+msgid "Login"
+msgstr "Logi sisse"
+
+msgid "Service Name"
+msgstr "Teenuse nimi"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Duration (hours)"
+msgstr "Kestus (tunnid)"
+
+msgid "Category"
+msgstr "Kategooria"
+
+msgid "Plumbing"
+msgstr "Torutööd"
+
+msgid "Electrical"
+msgstr "Elektritööd"
+
+msgid "Cleaning"
+msgstr "Koristamine"
+
+msgid "Gardening"
+msgstr "Aiatööd"
+
+msgid "Painting"
+msgstr "Värvimine"
+
+msgid "Carpentry"
+msgstr "Puusepatööd"
+
+msgid "Other"
+msgstr "Muu"
+
+msgid "Service"
+msgstr "Teenus"
+
+msgid "Preferred Date & Time"
+msgstr "Eelistatud kuupäev ja kellaaeg"
+
+msgid "Special Requests"
+msgstr "Erinõuded"
+
+msgid "Rating"
+msgstr "Hinne"
+
+msgid "5 Stars - Excellent"
+msgstr "5 tähte - Suurepärane"
+
+msgid "4 Stars - Very Good"
+msgstr "4 tähte - Väga hea"
+
+msgid "3 Stars - Good"
+msgstr "3 tähte - Hea"
+
+msgid "2 Stars - Fair"
+msgstr "2 tähte - Rahuldav"
+
+msgid "1 Star - Poor"
+msgstr "1 täht - Halb"
+
+msgid "Comment"
+msgstr "Kommentaar"
+
+msgid "Welcome back"
+msgstr "Tere tulemast tagasi"
+
+msgid "Log in to your Service PRO account"
+msgstr "Logige sisse oma Service PRO kontole"
+
+msgid "Enter your username"
+msgstr "Sisestage oma kasutajanimi"
+
+msgid "Enter your password"
+msgstr "Sisestage oma parool"
+
+msgid "Don't have an account?"
+msgstr "Pole kontot?"
+
+msgid "Sign up here"
+msgstr "Registreeru siin"
+
+msgid "Create account"
+msgstr "Loo konto"
+
+msgid "Join Service PRO and connect with trusted professionals"
+msgstr "Liituge Service PRO-ga ja ühenduge usaldusväärsete professionaalidega"
+
+msgid "Enter your first name"
+msgstr "Sisestage oma eesnimi"
+
+msgid "Enter your last name"
+msgstr "Sisestage oma perekonnanimi"
+
+msgid "Choose a username"
+msgstr "Valige kasutajanimi"
+
+msgid "Enter your email"
+msgstr "Sisestage oma e-post"
+
+msgid "Enter your phone number"
+msgstr "Sisestage oma telefoninumber"
+
+msgid "Create a password"
+msgstr "Loo parool"
+
+msgid "Confirm your password"
+msgstr "Kinnita oma parool"
+
+msgid "Already have an account?"
+msgstr "On juba konto?"
+
+msgid "Login here"
+msgstr "Logi siin sisse"
+
+msgid "Don't have an account?"
+msgstr "Pole kontot?"
+
+msgid "Sign up here"
+msgstr "Registreeru siin"
+
+msgid "Forgot your password?"
+msgstr "Unustasid parooli?"
+
+msgid "Pending"
+msgstr "Ootel"
+
+msgid "Confirmed"
+msgstr "Kinnitatud"
+
+msgid "Completed"
+msgstr "Lõpetatud"
+
+msgid "Feedback"
+msgstr "Tagasiside"
+
+msgid "You haven't made any service bookings yet."
+msgstr "Te pole veel ühtegi teenuse broneeringut teinud."
+
+msgid "Leave Feedback"
+msgstr "Jäta tagasiside"
+
+msgid "Add Service"
+msgstr "Lisa teenus"
+
+msgid "Admin Dashboard"
+msgstr "Admini töölaud"
+
+msgid "Manage Services"
+msgstr "Halda teenuseid"
+
+msgid "Add New Service"
+msgstr "Lisa uus teenus"
+
+msgid "hours"
+msgstr "tundi"
+
+msgid "Cancel"
+msgstr "Tühista"
