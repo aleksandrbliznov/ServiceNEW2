@@ -9,21 +9,21 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h1 class="display-4 fw-bold mb-4">
-                    Professional Services<br>
-                    <span class="text-gradient">At Your Fingertips</span>
+                    {{ _('Professional Services') }}<br>
+                    <span class="text-gradient">{{ _('At Your Fingertips') }}</span>
                 </h1>
                 <p class="lead mb-4">
-                    Connect with trusted professionals for all your home service needs.<br>
-                    Quality workmanship, reliable service, and competitive prices.
+                    {{ _('Connect with trusted professionals for all your home service needs.') }}<br>
+                    {{ _('Quality workmanship, reliable service, and competitive prices.') }}
                 </p>
 
                 {% if not current_user.is_authenticated %}
                 <div class="d-flex flex-wrap gap-3">
                     <a class="btn btn-light btn-lg" href="{{ url_for('register') }}">
-                        <i class="fas fa-rocket me-2"></i>Find Services
+                        <i class="fas fa-rocket me-2"></i>{{ _('Find Services') }}
                     </a>
                     <a class="btn btn-outline-light btn-lg" href="{{ url_for('login') }}">
-                        <i class="fas fa-handshake me-2"></i>Become a Provider
+                        <i class="fas fa-handshake me-2"></i>{{ _('Become a Provider') }}
                     </a>
                 </div>
                 {% endif %}
@@ -75,11 +75,11 @@
 
                         {% if current_user.is_authenticated and current_user.role == 'user' %}
                         <a href="{{ url_for('services_by_group', group_id=group.id) }}" class="btn btn-primary w-100">
-                            <i class="fas fa-eye me-2"></i>View Services
+                            <i class="fas fa-eye me-2"></i>{{ _('View Services') }}
                         </a>
                         {% elif not current_user.is_authenticated %}
                         <p class="text-muted text-center mb-3">
-                            <a href="{{ url_for('login') }}" class="text-decoration-none">Log in</a> to view services
+                            <a href="{{ url_for('login') }}" class="text-decoration-none">{{ _('Login') }}</a> {{ _('to view services') }}
                         </p>
                         {% endif %}
                     </div>
@@ -165,7 +165,7 @@
                 <div class="stats-card animate-on-scroll">
                     <i class="fas fa-users text-primary"></i>
                     <h3>500+</h3>
-                    <p>Happy Clients</p>
+                    <p>{{ _('Happy Clients') }}</p>
                 </div>
             </div>
 
@@ -173,7 +173,7 @@
                 <div class="stats-card animate-on-scroll">
                     <i class="fas fa-user-tie text-success"></i>
                     <h3>100+</h3>
-                    <p>Professionals</p>
+                    <p>{{ _('Professionals') }}</p>
                 </div>
             </div>
 
@@ -181,7 +181,7 @@
                 <div class="stats-card animate-on-scroll">
                     <i class="fas fa-th-large text-info"></i>
                     <h3>50+</h3>
-                    <p>Service Types</p>
+                    <p>{{ _('Service Types') }}</p>
                 </div>
             </div>
 
@@ -189,7 +189,7 @@
                 <div class="stats-card animate-on-scroll">
                     <i class="fas fa-headset text-warning"></i>
                     <h3>24/7</h3>
-                    <p>Support</p>
+                    <p>{{ _('Support') }}</p>
                 </div>
             </div>
         </div>
@@ -201,11 +201,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="fw-bold text-white mb-3">Valmis alustama?</h2>
-                <p class="lead text-white-50 mb-4">Liituge tuhandete rahulolevate klientidega ja leidke oma ideaalne teenuseosutaja juba täna</p>
+                <h2 class="fw-bold text-white mb-3">{{ _('Ready to Get Started?') }}</h2>
+                <p class="lead text-white-50 mb-4">{{ _('Join thousands of satisfied customers and find your perfect service provider today') }}</p>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="{{ url_for('register') }}" class="btn btn-light btn-lg px-5">
-                        <i class="fas fa-rocket me-2"></i>Alusta kohe
+                        <i class="fas fa-rocket me-2"></i>{{ _('Get Started') }}
                     </a>
                     <a href="#contact" class="btn btn-outline-light btn-lg px-5">
                         <i class="fas fa-phone me-2"></i>{{ _('Contact Us') }}

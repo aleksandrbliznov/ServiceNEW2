@@ -1,121 +1,121 @@
 # Service PRO
 
-A complete service booking application built with Python Flask, featuring user registration, admin panel, handyman management, modern responsive design, and multi-language support.
+Täielik teenuste broneerimise rakendus, mis on ehitatud Python Flaskiga, sisaldades kasutajate registreerimist, admini paneeli, meistrite haldust, modernset reageerivat disaini ja mitmekeelset tuge.
 
-## Features
+## Funktsioonid
 
-### 🔐 User Management
-- **User Registration**: Customers can register with the system
-- **Role-based Access**: Three user roles - Customer, Admin, Handyman
-- **Secure Authentication**: Password hashing and session management
-- **Profile Management**: Users can manage their profiles
+### 🔐 Kasutajate Haldus
+- **Kasutajate Registreerimine**: Kliendid saavad süsteemiga registreeruda
+- **Rollipõhine Juurdepääs**: Kolm kasutajarolli - Klient, Admin, Meister
+- **Turvaline Autentimine**: Paroolide räsimine ja sessioonide haldus
+- **Profiili Haldus**: Kasutajad saavad oma profiile hallata
 
-### 🛠️ Service Management
-- **Service Catalog**: Admins can manage available services
-- **Service Booking**: Customers can book services online
-- **Booking Management**: Track booking status and history
-- **Special Requests**: Customers can add special requirements
+### 🛠️ Teenuste Haldus
+- **Teenuste Kataloog**: Adminid saavad saadaval olevaid teenuseid hallata
+- **Teenuste Broneerimine**: Kliendid saavad teenuseid internetis broneerida
+- **Broneeringute Haldus**: Jälgi broneeringute staatust ja ajalugu
+- **Erinõuded**: Kliendid saavad lisada erinõudeid
 
-### 👨‍🔧 Handyman System
-- **Handyman Registration**: Professionals can register as service providers
-- **Admin Approval**: All handyman registrations require admin approval
-- **Job Assignment**: Admins assign jobs to approved handymen
-- **Status Tracking**: Handymen can update job progress
+### 👨‍🔧 Meistrite Süsteem
+- **Meistrite Registreerimine**: Professionaalid saavad registreeruda teenuseosutajatena
+- **Admini Kinnitamine**: Kõik meistrite registreerimised vajavad admini kinnitust
+- **Tööde Määramine**: Adminid määravad tööd kinnitatud meistritele
+- **Staatuse Jälgimine**: Meistrid saavad tööde edenemist uuendada
 
-### 🎛️ Admin Panel
-- **User Management**: Approve/reject handyman registrations
-- **Booking Oversight**: Manage all bookings and assignments
-- **System Statistics**: View platform usage statistics
-- **Complete Control**: Full administrative access
+### 🎛️ Admini Paneel
+- **Kasutajate Haldus**: Kinnita/tagasi lükka meistrite registreerimised
+- **Broneeringute Järelevalve**: Halda kõiki broneeringuid ja määramisi
+- **Süsteemi Statistika**: Vaata platvormi kasutusstatistikat
+- **Täielik Kontroll**: Täielik administratiivne juurdepääs
 
-### 🌍 Internationalization (i18n)
-- **Multi-language Support**: Estonian (et) and Russian (ru) languages
-- **Flask-Babel Integration**: Complete translation system
-- **Dynamic Language Switching**: Users can switch languages
-- **Translated Content**: All UI text and messages translated
+### 🌍 Rahvusvahelistamine (i18n)
+- **Mitmekeelne Tugi**: Eesti (et) ja vene (ru) keel
+- **Flask-Babel Integratsioon**: Täielik tõlkesüsteem
+- **Dünaamiline Keele Vahetamine**: Kasutajad saavad keeli vahetada
+- **Tõlgitud Sisu**: Kogu UI tekst ja sõnumid on tõlgitud
 
-### 🎨 Modern Design & UX
-- **Fully Responsive UI**: Optimized for desktop, tablet, and mobile devices
-- **Bootstrap 5**: Modern, clean interface with enhanced components
-- **Interactive Elements**: Smooth animations, hover effects, and micro-interactions
-- **User-friendly**: Intuitive navigation and streamlined workflows
-- **Modern Landing Page**: Professional hero section, service cards, features showcase, and contact form
-- **Glass Morphism Effects**: Modern card designs with backdrop blur effects
-- **CSS Variables**: Consistent theming with ServiceNEW2 brand colors
-- **Enhanced Accessibility**: WCAG compliant with screen reader support, keyboard navigation, and high contrast mode
-- **Loading States**: Visual feedback for all user actions
-- **Touch-friendly**: Optimized touch targets for mobile devices
+### 🎨 Modernne Disain & UX
+- **Täielikult Reageeriv UI**: Optimeeritud laua-, tahvel- ja mobiiliseadmetele
+- **Bootstrap 5**: Modernne, puhas liides täiustatud komponentidega
+- **Interaktiivsed Elemendid**: Sujuvad animatsioonid, hover-efektid ja mikro-interaktsioonid
+- **Kasutajasõbralik**: Intuitiivne navigeerimine ja sujuvad töövoogud
+- **Moderne Avaleht**: Professionaalne kangelase sektsioon, teenuste kaardid, funktsioonide esitlus ja kontaktivorm
+- **Klaas Morfismi Efektid**: Modernsed kaardidisainid tausta häguga
+- **CSS Muutujad**: Ühtlane teemastamine ServiceNEW2 brändivärvidega
+- **Täiustatud Juurdepääsetavus**: WCAG nõuetele vastav koos ekraanilugeja toega, klaviatuuri navigeerimise ja kõrge kontrastiga
+- **Laadimise Olekud**: Visuaalne tagasiside kõigile kasutaja tegevustele
+- **Puute-sõbralik**: Optimeeritud puute sihtmärgid mobiiliseadmetele
 
-## Technology Stack
+## Tehnoloogia Stack
 
-- **Backend**: Python Flask with enhanced security and error handling
-- **Database**: SQLAlchemy ORM with SQLite/PostgreSQL/MySQL support
-- **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript with modern animations
-- **Authentication**: Flask-Login with secure session management
-- **Forms**: Flask-WTF with enhanced validation
-- **Internationalization**: Flask-Babel with Estonian and Russian support
-- **Icons**: Font Awesome 6
-- **Email**: Flask-Mail with SMTP and secure configuration
-- **Security**: Enhanced CORS, CSP, and input validation
+- **Backend**: Python Flask täiustatud turvalisuse ja veahaldusega
+- **Andmebaas**: SQLAlchemy ORM SQLite/PostgreSQL/MySQL toega
+- **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript modernsete animatsioonidega
+- **Autentimine**: Flask-Login turvalise sessioonide haldusega
+- **Vormid**: Flask-WTF täiustatud valideerimisega
+- **Rahvusvahelistamine**: Flask-Babel eesti ja vene keele toega
+- **Ikoonid**: Font Awesome 6
+- **E-post**: Flask-Mail SMTP ja turvalise konfiguratsiooniga
+- **Turvalisus**: Täiustatud CORS, CSP ja sisendi valideerimine
 
-## Installation
+## Paigaldamine
 
-1. **Clone the repository**:
+1. **Klooni repositoorium**:
    ```bash
    git clone <repository-url>
    cd service-app
    ```
 
-2. **Create virtual environment**:
+2. **Loo virtuaalne keskkond**:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+   source venv/bin/activate  # Windowsis: venv\\Scripts\\activate
    ```
 
-3. **Install dependencies**:
+3. **Paigalda sõltuvused**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configure environment variables**:
-   - Copy `.env` file and update with your settings:
+4. **Konfigureeri keskkonnamuutujad**:
+   - Kopeeri `.env` fail ja uuenda oma seadetega:
    ```bash
-   cp .env .env.local  # Create a copy
-   # Edit .env.local with your email credentials and database settings
+   cp .env .env.local  # Loo koopia
+   # Muuda .env.local oma e-posti mandaatide ja andmebaasi seadetega
    ```
 
-5. **Setup database** (choose one option):
+5. **Seadista andmebaas** (vali üks valik):
 
-   **Option A: SQLite (default, but may have Windows compatibility issues)**
+   **Valik A: SQLite (vaikimisi, aga võib olla Windowsi ühilduvusprobleeme)**
    ```bash
    python create_working_db.py
    ```
 
-   **Option B: PostgreSQL (recommended for production)**
+   **Valik B: PostgreSQL (soovitatav tootmiseks)**
    ```bash
-   # Install PostgreSQL and create database first
-   # Update .env with PostgreSQL connection string
+   # Paigalda PostgreSQL ja loo andmebaas esmalt
+   # Uuenda .env PostgreSQL ühendusstringiga
    SQLALCHEMY_DATABASE_URI=postgresql://username:password@localhost:5432/service_pro
-   # Then run:
+   # Seejärel käivita:
    python setup_postgresql.py
    ```
 
-   **Option C: MySQL (alternative option)**
+   **Valik C: MySQL (alternatiivne valik)**
    ```bash
-   # Install MySQL and create database first
-   # Update .env with MySQL connection string
+   # Paigalda MySQL ja loo andmebaas esmalt
+   # Uuenda .env MySQL ühendusstringiga
    SQLALCHEMY_DATABASE_URI=mysql://username:password@localhost:3306/service_pro
-   # Then run:
+   # Seejärel käivita:
    python setup_postgresql.py
    ```
 
-5. **Run the application**:
+5. **Käivita rakendus**:
    ```bash
    python app.py
    ```
 
-6. **Open your browser**:
-   Navigate to `http://localhost:5000`
+6. **Ava oma brauser**:
+   Navigeeri `http://localhost:5000`
 
 ## Default Login Credentials
 
@@ -329,14 +329,14 @@ The modular Flask structure makes it easy to add new features and routes.
 4. Test thoroughly
 5. Submit a pull request
 
-## License
+## Litsents
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+See projekt on litsentseeritud MIT Litsentsi alusel - vaata LICENSE faili detailide jaoks.
 
-## Support
+## Tugi
 
-For support and questions, please contact the development team or create an issue in the repository.
+Toe ja küsimuste korral võta palun ühendust arendustiimiga või loo issue repositooriumis.
 
 ---
 
-**Built with ❤️ using Python Flask**
+**Ehitatud ❤️ Python Flaskiga**

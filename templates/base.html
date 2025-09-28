@@ -19,9 +19,9 @@
 
     <style>
         body {
-             font-family: 'Inter', sans-serif;
-             background-color: #f1f5f9;
-         }
+              font-family: 'Inter', sans-serif;
+              background-color: var(--color-bg);
+          }
 
         .navbar-brand {
              font-weight: 700;
@@ -31,11 +31,11 @@
 
          .navbar-brand:hover {
              transform: scale(1.05);
-             color: #f97316 !important;
+             color: var(--color-secondary) !important;
          }
 
          .navbar-brand i {
-             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             background: var(--primary-gradient);
              -webkit-background-clip: text;
              -webkit-text-fill-color: transparent;
              background-clip: text;
@@ -47,7 +47,7 @@
          }
 
         .hero-section {
-             background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+             background: var(--hero-gradient);
              color: white;
              padding: 5rem 0;
              margin-bottom: 4rem;
@@ -149,7 +149,7 @@
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -198,7 +198,7 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--color-card);
             backdrop-filter: blur(10px);
             overflow: hidden;
             position: relative;
@@ -222,7 +222,7 @@
 
         .service-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px var(--color-shadow);
         }
 
         .service-card .card-body {
@@ -232,7 +232,7 @@
         .service-card .feature-icon {
              width: 70px;
              height: 70px;
-             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             background: var(--secondary-gradient);
              border-radius: 20px;
              display: flex;
              align-items: center;
@@ -254,13 +254,13 @@
         .service-card .card-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #1e293b;
+            color: var(--color-text-primary);
             margin-bottom: 1rem;
             text-align: center;
         }
 
         .service-card .card-text {
-            color: #64748b;
+            color: var(--color-text-secondary);
             text-align: center;
             margin-bottom: 1.5rem;
             line-height: 1.6;
@@ -280,14 +280,14 @@
          }
 
         .btn-primary {
-             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             background: var(--primary-gradient);
              border: none;
              border-radius: 25px;
              padding: 0.75rem 2rem;
          }
 
          .btn-primary:hover {
-             background: linear-gradient(135deg, #2563eb 0%, #0f1724 100%);
+             background: var(--primary-gradient);
              transform: translateY(-2px);
          }
 
@@ -303,7 +303,7 @@
         }
 
         .footer {
-             background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+             background: var(--hero-gradient);
              margin-top: 5rem;
              position: relative;
              overflow: hidden;
@@ -336,7 +336,7 @@
         }
 
         .footer a:hover {
-             color: #f97316;
+             color: var(--color-secondary);
              transform: translateX(5px);
          }
 
@@ -359,7 +359,7 @@
         }
 
         .footer .social-links a:hover {
-             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             background: var(--secondary-gradient);
              color: white;
              transform: translateY(-3px) scale(1.1);
              box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
@@ -374,7 +374,7 @@
 
         .footer .contact-item i {
              width: 40px;
-             color: #f97316;
+             color: var(--color-secondary);
              margin-right: 1rem;
              font-size: 1.2rem;
          }
@@ -389,7 +389,7 @@
         }
 
         .stats-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--color-card);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 2.5rem 1.5rem;
@@ -417,7 +417,7 @@
 
         .stats-card:hover {
              transform: translateY(-8px);
-             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+             box-shadow: 0 20px 40px var(--color-shadow);
              border-color: rgba(245, 115, 22, 0.3);
          }
 
@@ -429,23 +429,23 @@
 
         .stats-card:hover i {
              transform: scale(1.1);
-             color: #f97316 !important;
+             color: var(--color-secondary) !important;
          }
 
          .stats-card h3 {
-             font-size: 2.5rem;
-             font-weight: 800;
-             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
-             -webkit-background-clip: text;
-             -webkit-text-fill-color: transparent;
-             background-clip: text;
-             margin-bottom: 1rem;
-         }
+              font-size: 2.5rem;
+              font-weight: 800;
+              background: var(--primary-gradient);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              margin-bottom: 1rem;
+          }
 
         .stats-card p {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #64748b;
+            color: var(--color-text-secondary);
             margin: 0;
         }
 
@@ -588,14 +588,14 @@
         }
 
         .navbar .btn-outline-primary {
-             color: #f97316;
-             border-color: #f97316;
+             color: var(--color-secondary);
+             border-color: var(--color-secondary);
              border-width: 2px;
              background: rgba(245, 115, 22, 0.05);
          }
 
          .navbar .btn-outline-primary:hover {
-             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             background: var(--secondary-gradient);
              border-color: transparent;
              color: white;
              transform: translateY(-2px);
@@ -603,28 +603,28 @@
          }
 
          .navbar .btn-primary {
-             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
-             border: none;
-             box-shadow: 0 4px 15px rgba(15, 23, 36, 0.3);
-         }
+              background: var(--primary-gradient);
+              border: none;
+              box-shadow: 0 4px 15px rgba(15, 23, 36, 0.3);
+          }
 
-         .navbar .btn-primary:hover {
-             background: linear-gradient(135deg, #2563eb 0%, #0f1724 100%);
-             transform: translateY(-2px);
-             box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-         }
+          .navbar .btn-primary:hover {
+              background: var(--primary-gradient);
+              transform: translateY(-2px);
+              box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
+          }
 
         /* User dropdown button */
         .navbar .dropdown-toggle {
              border-radius: 25px;
              padding: 0.6rem 1.8rem;
              font-weight: 600;
-             border: 2px solid #f97316;
+             border: 2px solid var(--color-secondary);
              background: rgba(245, 115, 22, 0.05);
          }
 
          .navbar .dropdown-toggle:hover {
-             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             background: var(--secondary-gradient);
              color: white;
              transform: translateY(-2px);
              box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
@@ -644,7 +644,7 @@
              left: 50%;
              width: 0;
              height: 2px;
-             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             background: var(--secondary-gradient);
              transition: all 0.3s ease;
              transform: translateX(-50%);
          }
@@ -654,7 +654,7 @@
          }
 
          .navbar-nav .nav-link:hover {
-             color: #f97316 !important;
+             color: var(--color-secondary) !important;
              transform: translateY(-1px);
          }
     </style>
@@ -839,10 +839,10 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <h6 class="mb-3">Contact Info</h6>
+                    <h6 class="mb-3">{{ _('Contact Info') }}</h6>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>123 Service Street, City, State 12345</span>
+                        <span>{{ _('123 Service Street, City, State 12345') }}</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -859,11 +859,11 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">© 2024 Service PRO. All rights reserved.</p>
+                    <p class="mb-0">{{ _('© 2024 Service PRO. All rights reserved.') }}</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="mb-0">
-                        Made with <i class="fas fa-heart text-danger mx-1"></i> for better service
+                        {{ _('Made with') }} <i class="fas fa-heart text-danger mx-1"></i> {{ _('for better service') }}
                     </p>
                 </div>
             </div>
