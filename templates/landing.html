@@ -17,24 +17,24 @@
             <div class="col-lg-6">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        {{ _('Professional Services') }}
-                        <span class="text-gradient">{{ _('Made Simple') }}</span>
+                        Professionaalsed teenused
+                        <span class="text-gradient">Lihtsalt</span>
                     </h1>
                     <p class="hero-subtitle">
-                        {{ _('Connect with trusted professionals for all your home service needs.') }}
-                        {{ _('Quality workmanship, reliable service, and competitive prices.') }}
+                        Ühendage usaldusväärsete professionaalidega kõigi oma kodu teenuste vajaduste jaoks.
+                        Kvaliteetne töö, usaldusväärne teenindus ja konkurentsivõimelised hinnad.
                     </p>
 
                     <div class="hero-buttons">
                         <a class="btn btn-primary btn-lg me-3" href="{{ url_for('register') }}" role="button"
-                           aria-label="{{ _('Register as a new user') }}">
+                           aria-label="Registreeru uue kasutajana">
                             <i class="fas fa-user-plus me-2" aria-hidden="true"></i>
-                            <span>{{ _('Register') }}</span>
+                            <span>Registreeru</span>
                         </a>
-                        <a class="btn btn-outline-primary btn-lg" href="{{ url_for('services') }}" role="button"
-                           aria-label="{{ _('Browse and book available services') }}">
+                        <a class="btn btn-primary btn-lg" href="{{ url_for('services') }}" role="button"
+                           aria-label="Sirvi ja broneeri saadaval olevaid teenuseid">
                             <i class="fas fa-search me-2" aria-hidden="true"></i>
-                            <span>{{ _('Book Service') }}</span>
+                            <span>Broneeri teenus</span>
                         </a>
                     </div>
                 </div>
@@ -42,16 +42,17 @@
             <div class="col-lg-6">
                 <div class="hero-visual">
                     <div class="hero-icon-container">
-                        <i class="fas fa-tools hero-main-icon" aria-hidden="true"></i>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center"
+                             alt="Professional Service Provider" class="hero-main-image" />
                         <div class="floating-elements">
                             <div class="floating-element floating-element-1">
-                                <i class="fas fa-wrench" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                             <div class="floating-element floating-element-2">
-                                <i class="fas fa-hammer" aria-hidden="true"></i>
+                                <i class="fas fa-smile-beam" aria-hidden="true"></i>
                             </div>
                             <div class="floating-element floating-element-3">
-                                <i class="fas fa-screwdriver" aria-hidden="true"></i>
+                                <i class="fas fa-thumbs-up" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -68,8 +69,8 @@
 <section class="services-section" id="services" aria-labelledby="services-heading">
      <div class="container">
          <div class="section-header text-center">
-             <h2 class="section-title" id="services-heading">{{ _('Popular Services') }}</h2>
-             <p class="section-subtitle">{{ _('Choose from our most requested professional services') }}</p>
+             <h2 class="section-title" id="services-heading">Populaarsed teenused</h2>
+             <p class="section-subtitle">Valige meie kõige nõutumate professionaalsete teenuste hulgast</p>
          </div>
 
          <div class="row g-4" role="region" aria-label="Available service categories">
@@ -78,12 +79,12 @@
                      <div class="service-icon" aria-hidden="true">
                          <i class="fas fa-paint-brush"></i>
                      </div>
-                     <h3 class="service-title" id="painting-title">{{ _('Painting') }}</h3>
+                     <h3 class="service-title" id="painting-title">Värvimine</h3>
                      <p class="service-description">
-                         {{ _('Professional interior and exterior painting services with quality finishes') }}
+                         Professionaalsed sise- ja välisvärvimisteenused kvaliteetse viimistlusega
                      </p>
-                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about painting services') }}">
-                         <span>{{ _('Learn More') }}</span>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Lisateave värvimisteenuste kohta">
+                         <span>Lisateave</span>
                          <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                      </a>
                  </article>
@@ -94,12 +95,12 @@
                      <div class="service-icon" aria-hidden="true">
                          <i class="fas fa-wrench"></i>
                      </div>
-                     <h3 class="service-title" id="plumbing-title">{{ _('Plumbing') }}</h3>
+                     <h3 class="service-title" id="plumbing-title">Torutööd</h3>
                      <p class="service-description">
-                         {{ _('Expert plumbing repairs, installations, and maintenance services') }}
+                         Ekspertide torutööde remont, paigaldus ja hooldusteenused
                      </p>
-                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about plumbing services') }}">
-                         <span>{{ _('Learn More') }}</span>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Lisateave torutööde teenuste kohta">
+                         <span>Lisateave</span>
                          <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                      </a>
                  </article>
@@ -110,12 +111,12 @@
                      <div class="service-icon" aria-hidden="true">
                          <i class="fas fa-bolt"></i>
                      </div>
-                     <h3 class="service-title" id="electrical-title">{{ _('Electrical') }}</h3>
+                     <h3 class="service-title" id="electrical-title">Elektritööd</h3>
                      <p class="service-description">
-                         {{ _('Licensed electricians for installations, repairs, and safety inspections') }}
+                         Litsentseeritud elektrikud paigalduste, remondi ja ohutusinspektsioonide jaoks
                      </p>
-                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about electrical services') }}">
-                         <span>{{ _('Learn More') }}</span>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Lisateave elektritööde teenuste kohta">
+                         <span>Lisateave</span>
                          <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                      </a>
                  </article>
@@ -126,12 +127,12 @@
                      <div class="service-icon" aria-hidden="true">
                          <i class="fas fa-broom"></i>
                      </div>
-                     <h3 class="service-title" id="cleaning-title">{{ _('Cleaning') }}</h3>
+                     <h3 class="service-title" id="cleaning-title">Koristamine</h3>
                      <p class="service-description">
-                         {{ _('Thorough home and office cleaning services for a spotless environment') }}
+                         Põhjalikud kodu ja kontori koristusteenused laitmatu keskkonna jaoks
                      </p>
-                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about cleaning services') }}">
-                         <span>{{ _('Learn More') }}</span>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Lisateave koristusteenuste kohta">
+                         <span>Lisateave</span>
                          <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                      </a>
                  </article>
@@ -332,7 +333,7 @@
                     <i class="fas fa-rocket me-2" aria-hidden="true"></i>
                     <span>{{ _('Get Started') }}</span>
                 </a>
-                <a href="{{ url_for('services') }}" class="btn btn-outline-primary btn-lg">
+                <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg">
                     <i class="fas fa-search me-2" aria-hidden="true"></i>
                     <span>{{ _('Browse Services') }}</span>
                 </a>

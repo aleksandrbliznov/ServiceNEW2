@@ -426,6 +426,39 @@ msgstr "Alghind"
 msgid "Happy Customers"
 msgstr "Rahulolevad kliendid"
 
+msgid "Happy Clients"
+msgstr "Rahulolevad kliendid"
+
+msgid "Service Types"
+msgstr "Teenuse tüübid"
+
+msgid "Professionals"
+msgstr "Professionaalid"
+
+msgid "Get In Touch"
+msgstr "Võtke ühendust"
+
+msgid "Have a question or need a custom service? Send us a message and we will get back to you soon."
+msgstr "Kas teil on küsimus või vajate kohandatud teenust? Saatke meile sõnum ja me võtame teiega peagi ühendust."
+
+msgid "Full Name"
+msgstr "Täisnimi"
+
+msgid "Email Address"
+msgstr "E-posti aadress"
+
+msgid "Service Address"
+msgstr "Teenuse aadress"
+
+msgid "Message"
+msgstr "Sõnum"
+
+msgid "Describe your service needs..."
+msgstr "Kirjeldage oma teenuse vajadusi..."
+
+msgid "Submit Request"
+msgstr "Esita taotlus"
+
 msgid "Service Providers"
 msgstr "Teenuseosutajad"
 

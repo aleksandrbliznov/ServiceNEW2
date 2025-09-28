@@ -8,7 +8,7 @@
         <!-- Welcome Header -->
         <div class="row mb-4">
             <div class="col-12">
-                <div class="card bg-gradient-primary text-white" style="border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="card text-white" style="border-radius: 15px; background: var(--primary-gradient);">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -27,8 +27,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-body">
-                        <div class="bg-primary-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(102, 126, 234, 0.1);">
-                            <i class="fas fa-users fa-2x text-primary"></i>
+                        <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(29, 78, 216, 0.1);">
+                            <i class="fas fa-users fa-2x" style="color: var(--color-primary);"></i>
                         </div>
                         <h3 class="mb-1">{{ total_users }}</h3>
                         <p class="text-muted mb-0">Kokku kasutajaid</p>
@@ -38,8 +38,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-body">
-                        <div class="bg-success-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(34, 197, 94, 0.1);">
-                            <i class="fas fa-tools fa-2x text-success"></i>
+                        <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(29, 78, 216, 0.1);">
+                            <i class="fas fa-tools fa-2x" style="color: var(--color-hover);"></i>
                         </div>
                         <h3 class="mb-1">{{ total_services }}</h3>
                         <p class="text-muted mb-0">Kokku teenuseid</p>
@@ -49,8 +49,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-body">
-                        <div class="bg-warning-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(251, 191, 36, 0.1);">
-                            <i class="fas fa-calendar-check fa-2x text-warning"></i>
+                        <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(245, 115, 22, 0.1);">
+                            <i class="fas fa-calendar-check fa-2x" style="color: var(--color-secondary);"></i>
                         </div>
                         <h3 class="mb-1">{{ total_bookings }}</h3>
                         <p class="text-muted mb-0">Kokku broneeringuid</p>
@@ -60,8 +60,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-body">
-                        <div class="bg-danger-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(239, 68, 68, 0.1);">
-                            <i class="fas fa-clock fa-2x text-danger"></i>
+                        <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(245, 115, 22, 0.1);">
+                            <i class="fas fa-clock fa-2x" style="color: var(--color-secondary);"></i>
                         </div>
                         <h3 class="mb-1">{{ pending_bookings }}</h3>
                         <p class="text-muted mb-0">Ootel broneeringud</p>
@@ -73,7 +73,7 @@
         <!-- Handyman Performance Overview -->
         <div class="row mb-4">
             <div class="col-lg-3 col-md-6">
-                <div class="card text-center bg-info text-white" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <div class="card text-center text-white" style="border-radius: 15px; box-shadow: 0 5px 15px var(--color-shadow); background: var(--color-hover);">
                     <div class="card-body">
                         <div class="bg-white bg-opacity-25 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fas fa-user-check fa-2x"></i>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="card text-center bg-primary text-white" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <div class="card text-center text-white" style="border-radius: 15px; box-shadow: 0 5px 15px var(--color-shadow); background: var(--color-primary);">
                     <div class="card-body">
                         <div class="bg-white bg-opacity-25 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fas fa-cogs fa-2x"></i>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="card text-center bg-success text-white" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <div class="card text-center text-white" style="border-radius: 15px; box-shadow: 0 5px 15px var(--color-shadow); background: var(--color-hover);">
                     <div class="card-body">
                         <div class="bg-white bg-opacity-25 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fas fa-check-circle fa-2x"></i>
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="card text-center bg-warning text-white" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <div class="card text-center text-white" style="border-radius: 15px; box-shadow: 0 5px 15px var(--color-shadow); background: var(--color-secondary);">
                     <div class="card-body">
                         <div class="bg-white bg-opacity-25 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fas fa-dollar-sign fa-2x"></i>
@@ -124,21 +124,21 @@
                 <div class="card" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-header bg-white">
                         <h5 class="mb-0">
-                            <i class="fas fa-user-clock me-2 text-warning"></i>Ootel kinnitused
+                            <i class="fas fa-user-clock me-2" style="color: var(--color-secondary);"></i>Ootel kinnitused
                         </h5>
                     </div>
                     <div class="card-body">
                         {% if pending_handymen > 0 %}
-                        <div class="alert alert-warning border-0" style="border-radius: 10px;">
+                        <div class="alert border-0" style="border-radius: 10px; background: rgba(245, 115, 22, 0.1); color: var(--color-secondary);">
                             <i class="fas fa-exclamation-triangle me-2"></i>
                             <strong>{{ pending_handymen }}</strong> meistri registreerimine(id) ootab kinnitust.
                         </div>
-                        <a href="{{ url_for('admin_users') }}" class="btn btn-warning">
+                        <a href="{{ url_for('admin_users') }}" class="btn" style="background: var(--color-secondary); color: var(--color-card);">
                             <i class="fas fa-users-cog me-2"></i>Vaata ootel kasutajaid
                         </a>
                         {% else %}
                         <div class="text-center py-4">
-                            <i class="fas fa-check-circle text-success fa-3x mb-3"></i>
+                            <i class="fas fa-check-circle fa-3x mb-3" style="color: var(--color-hover);"></i>
                             <h6 class="text-muted">Kõik on korras!</h6>
                             <p class="text-muted mb-0">Ootel meistrite kinnitusi pole.</p>
                         </div>
@@ -151,21 +151,21 @@
                 <div class="card" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-header bg-white">
                         <h5 class="mb-0">
-                            <i class="fas fa-calendar-alt me-2 text-info"></i>Ootel broneeringud
+                            <i class="fas fa-calendar-alt me-2" style="color: var(--color-hover);"></i>Ootel broneeringud
                         </h5>
                     </div>
                     <div class="card-body">
                         {% if pending_bookings > 0 %}
-                        <div class="alert alert-info border-0" style="border-radius: 10px;">
+                        <div class="alert border-0" style="border-radius: 10px; background: rgba(29, 78, 216, 0.1); color: var(--color-primary);">
                             <i class="fas fa-info-circle me-2"></i>
                             <strong>{{ pending_bookings }}</strong> broneering(ud) ootab kinnitust.
                         </div>
-                        <a href="{{ url_for('admin_bookings') }}" class="btn btn-info">
+                        <a href="{{ url_for('admin_bookings') }}" class="btn" style="background: var(--color-primary); color: var(--color-card);">
                             <i class="fas fa-calendar-check me-2"></i>Vaata ootel broneeringuid
                         </a>
                         {% else %}
                         <div class="text-center py-4">
-                            <i class="fas fa-check-circle text-success fa-3x mb-3"></i>
+                            <i class="fas fa-check-circle fa-3x mb-3" style="color: var(--color-hover);"></i>
                             <h6 class="text-muted">Kõik valmis!</h6>
                             <p class="text-muted mb-0">Ootel broneeringuid ülevaatamiseks pole.</p>
                         </div>
@@ -181,31 +181,31 @@
                 <div class="card" style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                     <div class="card-header bg-white">
                         <h5 class="mb-0">
-                            <i class="fas fa-tachometer-alt me-2 text-primary"></i>Kiirtegevused
+                            <i class="fas fa-tachometer-alt me-2" style="color: var(--color-primary);"></i>Kiirtegevused
                         </h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
                             <div class="col-lg-3 col-md-6">
-                                <a href="{{ url_for('admin_users') }}" class="btn btn-outline-primary w-100 py-3" style="border-radius: 10px;">
+                                <a href="{{ url_for('admin_users') }}" class="btn w-100 py-3" style="border-radius: 10px; border: 2px solid var(--color-primary); color: var(--color-primary); background: transparent;">
                                     <i class="fas fa-users fa-2x mb-2"></i>
                                     <div>Kasutajate haldamine</div>
                                 </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <a href="{{ url_for('admin_bookings') }}" class="btn btn-outline-success w-100 py-3" style="border-radius: 10px;">
+                                <a href="{{ url_for('admin_bookings') }}" class="btn w-100 py-3" style="border-radius: 10px; border: 2px solid var(--color-hover); color: var(--color-hover); background: transparent;">
                                     <i class="fas fa-calendar-check fa-2x mb-2"></i>
                                     <div>Broneeringute haldamine</div>
                                 </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <a href="{{ url_for('admin_services') }}" class="btn btn-outline-info w-100 py-3" style="border-radius: 10px;">
+                                <a href="{{ url_for('admin_services') }}" class="btn w-100 py-3" style="border-radius: 10px; border: 2px solid var(--color-hover); color: var(--color-hover); background: transparent;">
                                     <i class="fas fa-tools fa-2x mb-2"></i>
                                     <div>Teenuste haldamine</div>
                                 </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <a href="{{ url_for('add_service') }}" class="btn btn-outline-warning w-100 py-3" style="border-radius: 10px;">
+                                <a href="{{ url_for('add_service') }}" class="btn w-100 py-3" style="border-radius: 10px; border: 2px solid var(--color-secondary); color: var(--color-secondary); background: transparent;">
                                     <i class="fas fa-plus fa-2x mb-2"></i>
                                     <div>Lisa teenus</div>
                                 </a>
