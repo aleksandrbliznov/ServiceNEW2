@@ -276,7 +276,12 @@ def user_dashboard():
             }
         })
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
+        app.logger.error(f"API Error in get_service_groups: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to load service groups',
+            'details': str(e) if app.debug else 'Internal server error'
+        }), 500
 
 @api_bp.route('/handyman/dashboard')
 @login_required
@@ -469,83 +474,6 @@ def api_admin_pending_services():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@api_bp.route('/admin/approve-service/<int:service_id>', methods=['POST'])
-@login_required
-def api_approve_service(service_id):
-    """API endpoint to approve a service (admin only)"""
-    if current_user.role != ADMIN:
-        return jsonify({'success': False, 'error': 'Access denied'}), 403
-
-    try:
-        db, User, Service, ServiceGroup, Booking, Feedback, Commission = get_models()
-        service = Service.query.get_or_404(service_id)
-        service.is_approved = True
-        db.session.commit()
-
-        return jsonify({
-            'success': True,
-            'message': f'Service "{service.name}" has been approved successfully'
-        })
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-@api_bp.route('/admin/reject-service/<int:service_id>', methods=['DELETE'])
-@login_required
-def api_reject_service(service_id):
-    """API endpoint to reject and delete a service (admin only)"""
-    if current_user.role != ADMIN:
-        return jsonify({'success': False, 'error': 'Access denied'}), 403
-
-    try:
-        db, User, Service, ServiceGroup, Booking, Feedback, Commission = get_models()
-        service = Service.query.get_or_404(service_id)
-        service_name = service.name
-        db.session.delete(service)
-        db.session.commit()
-
-        return jsonify({
-            'success': True,
-            'message': f'Service "{service_name}" has been rejected and deleted'
-        })
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-@api_bp.route('/admin/pending-services')
-@login_required
-def api_get_pending_services():
-    """Get all pending services for admin approval"""
-    if current_user.role != ADMIN:
-        return jsonify({'success': False, 'error': 'Access denied'}), 403
-
-    try:
-        db, User, Service, ServiceGroup, Booking, Feedback, Commission = get_models()
-        pending_services = Service.query.filter_by(is_approved=False).all()
-        return jsonify({
-            'success': True,
-            'data': [{
-                'id': s.id,
-                'name': s.name,
-                'description': s.description,
-                'price': float(s.price),
-                'duration_hours': s.duration_hours,
-                'category': s.category,
-                'service_group': {
-                    'id': s.service_group.id,
-                    'name': s.service_group.name
-                } if s.service_group else None,
-                'handyman': {
-                    'id': s.handyman.id,
-                    'first_name': s.handyman.first_name,
-                    'last_name': s.handyman.last_name,
-                    'email': s.handyman.email
-                } if s.handyman else None,
-                'created_at': s.created_at.isoformat() if s.created_at else None
-            } for s in pending_services]
-        })
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
 
 # Register API blueprint
 def init_api(app):

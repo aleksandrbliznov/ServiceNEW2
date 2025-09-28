@@ -19,41 +19,41 @@
 
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
+             font-family: 'Inter', sans-serif;
+             background-color: #f1f5f9;
+         }
 
         .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
+             font-weight: 700;
+             font-size: 1.5rem;
+             transition: all 0.3s ease;
+         }
 
-        .navbar-brand:hover {
-            transform: scale(1.05);
-            color: #667eea !important;
-        }
+         .navbar-brand:hover {
+             transform: scale(1.05);
+             color: #f97316 !important;
+         }
 
-        .navbar-brand i {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all 0.3s ease;
-        }
+         .navbar-brand i {
+             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             transition: all 0.3s ease;
+         }
 
-        .navbar-brand:hover i {
-            transform: rotate(180deg);
-        }
+         .navbar-brand:hover i {
+             transform: rotate(180deg);
+         }
 
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 5rem 0;
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
+             background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+             color: white;
+             padding: 5rem 0;
+             margin-bottom: 4rem;
+             position: relative;
+             overflow: hidden;
+         }
 
         .hero-section::before {
             content: '';
@@ -206,15 +206,15 @@
         }
 
         .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05), transparent);
-            transition: left 0.8s;
-        }
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(245, 115, 22, 0.05), transparent);
+             transition: left 0.8s;
+         }
 
         .service-card:hover::before {
             left: 100%;
@@ -230,21 +230,21 @@
         }
 
         .service-card .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            transition: all 0.4s ease;
-        }
+             width: 70px;
+             height: 70px;
+             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin: 0 auto 1.5rem;
+             transition: all 0.4s ease;
+         }
 
         .service-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
+             transform: scale(1.1) rotate(5deg);
+             box-shadow: 0 10px 30px rgba(245, 115, 22, 0.3);
+         }
 
         .service-card .feature-icon i {
             font-size: 2rem;
@@ -275,21 +275,21 @@
         }
 
         .service-card .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
+             transform: translateY(-2px);
+             box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
+         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 25px;
-            padding: 0.75rem 2rem;
-        }
+             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             border: none;
+             border-radius: 25px;
+             padding: 0.75rem 2rem;
+         }
 
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            transform: translateY(-2px);
-        }
+         .btn-primary:hover {
+             background: linear-gradient(135deg, #2563eb 0%, #0f1724 100%);
+             transform: translateY(-2px);
+         }
 
         .feature-icon {
             width: 60px;
@@ -303,21 +303,21 @@
         }
 
         .footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            margin-top: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
+             background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+             margin-top: 5rem;
+             position: relative;
+             overflow: hidden;
+         }
 
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #667eea, transparent);
-        }
+         .footer::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 1px;
+             background: linear-gradient(90deg, transparent, #f97316, transparent);
+         }
 
         .footer h4, .footer h6 {
             color: white;
@@ -336,9 +336,9 @@
         }
 
         .footer a:hover {
-            color: #667eea;
-            transform: translateX(5px);
-        }
+             color: #f97316;
+             transform: translateX(5px);
+         }
 
         .footer .social-links {
             display: flex;
@@ -359,11 +359,11 @@
         }
 
         .footer .social-links a:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
+             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             color: white;
+             transform: translateY(-3px) scale(1.1);
+             box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
+         }
 
         .footer .contact-item {
             display: flex;
@@ -373,11 +373,11 @@
         }
 
         .footer .contact-item i {
-            width: 40px;
-            color: #667eea;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
+             width: 40px;
+             color: #f97316;
+             margin-right: 1rem;
+             font-size: 1.2rem;
+         }
 
         .footer hr {
             border-color: rgba(255, 255, 255, 0.1);
@@ -401,25 +401,25 @@
         }
 
         .stats-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.8s;
-        }
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(245, 115, 22, 0.1), transparent);
+             transition: left 0.8s;
+         }
 
         .stats-card:hover::before {
             left: 100%;
         }
 
         .stats-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
+             transform: translateY(-8px);
+             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+             border-color: rgba(245, 115, 22, 0.3);
+         }
 
         .stats-card i {
             font-size: 3.5rem;
@@ -428,19 +428,19 @@
         }
 
         .stats-card:hover i {
-            transform: scale(1.1);
-            color: #667eea !important;
-        }
+             transform: scale(1.1);
+             color: #f97316 !important;
+         }
 
-        .stats-card h3 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
+         .stats-card h3 {
+             font-size: 2.5rem;
+             font-weight: 800;
+             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             margin-bottom: 1rem;
+         }
 
         .stats-card p {
             font-size: 1.1rem;
@@ -588,47 +588,47 @@
         }
 
         .navbar .btn-outline-primary {
-            color: #667eea;
-            border-color: #667eea;
-            border-width: 2px;
-            background: rgba(102, 126, 234, 0.05);
-        }
+             color: #f97316;
+             border-color: #f97316;
+             border-width: 2px;
+             background: rgba(245, 115, 22, 0.05);
+         }
 
-        .navbar .btn-outline-primary:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
+         .navbar .btn-outline-primary:hover {
+             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             border-color: transparent;
+             color: white;
+             transform: translateY(-2px);
+             box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
+         }
 
-        .navbar .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
+         .navbar .btn-primary {
+             background: linear-gradient(135deg, #0f1724 0%, #2563eb 100%);
+             border: none;
+             box-shadow: 0 4px 15px rgba(15, 23, 36, 0.3);
+         }
 
-        .navbar .btn-primary:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
+         .navbar .btn-primary:hover {
+             background: linear-gradient(135deg, #2563eb 0%, #0f1724 100%);
+             transform: translateY(-2px);
+             box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+         }
 
         /* User dropdown button */
         .navbar .dropdown-toggle {
-            border-radius: 25px;
-            padding: 0.6rem 1.8rem;
-            font-weight: 600;
-            border: 2px solid #667eea;
-            background: rgba(102, 126, 234, 0.05);
-        }
+             border-radius: 25px;
+             padding: 0.6rem 1.8rem;
+             font-weight: 600;
+             border: 2px solid #f97316;
+             background: rgba(245, 115, 22, 0.05);
+         }
 
-        .navbar .dropdown-toggle:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
+         .navbar .dropdown-toggle:hover {
+             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             color: white;
+             transform: translateY(-2px);
+             box-shadow: 0 8px 25px rgba(245, 115, 22, 0.3);
+         }
 
         /* Navigation links hover effect */
         .navbar-nav .nav-link {
@@ -638,25 +638,25 @@
         }
 
         .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
+             content: '';
+             position: absolute;
+             bottom: 0;
+             left: 50%;
+             width: 0;
+             height: 2px;
+             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+             transition: all 0.3s ease;
+             transform: translateX(-50%);
+         }
 
-        .navbar-nav .nav-link:hover::after {
-            width: 80%;
-        }
+         .navbar-nav .nav-link:hover::after {
+             width: 80%;
+         }
 
-        .navbar-nav .nav-link:hover {
-            color: #667eea !important;
-            transform: translateY(-1px);
-        }
+         .navbar-nav .nav-link:hover {
+             color: #f97316 !important;
+             transform: translateY(-1px);
+         }
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -676,18 +676,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Avaleht</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">{{ _('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('services') }}">Teenused</a>
+                        <a class="nav-link" href="{{ url_for('services') }}">{{ _('Our Services') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Meist</a>
+                        <a class="nav-link" href="#about">{{ _('About Us') }}</a>
                     </li>
                     {% if current_user.is_authenticated %}
                         {% if current_user.role == 'user' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('user_dashboard') }}">Minu töölaud</a>
+                            <a class="nav-link" href="{{ url_for('user_dashboard') }}">{{ _('My Dashboard') }}</a>
                         </li>
                         {% elif current_user.role == 'admin' %}
                         <li class="nav-item dropdown">
@@ -724,12 +724,12 @@
                     {% if not current_user.is_authenticated %}
                     <li class="nav-item me-2">
                         <a class="btn btn-outline-primary" href="{{ url_for('register') }}">
-                            <i class="fas fa-user-plus me-1"></i>Registreeru
+                            <i class="fas fa-user-plus me-1"></i>{{ _('Register') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary" href="{{ url_for('login') }}">
-                            <i class="fas fa-sign-in-alt me-1"></i>Logi sisse
+                            <i class="fas fa-sign-in-alt me-1"></i>{{ _('Login') }}
                         </a>
                     </li>
                     {% else %}
@@ -739,7 +739,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url_for('logout') }}">
-                                <i class="fas fa-sign-out-alt me-2"></i>Logi välja
+                                <i class="fas fa-sign-out-alt me-2"></i>{{ _('Logout') }}
                             </a></li>
                         </ul>
                     </li>

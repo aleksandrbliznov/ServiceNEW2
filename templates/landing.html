@@ -8,7 +8,7 @@
 
 {% block content %}
 <!-- Skip to main content for accessibility -->
-<a href="#main-content" class="skip-to-main">Skip to main content</a>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
 <!-- Hero Section -->
 <section class="hero-section" role="banner" aria-label="Welcome to Service PRO">
@@ -17,24 +17,24 @@
             <div class="col-lg-6">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Professional Services
-                        <span class="text-gradient">Made Simple</span>
+                        {{ _('Professional Services') }}
+                        <span class="text-gradient">{{ _('Made Simple') }}</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Connect with trusted professionals for all your home service needs.
-                        Quality workmanship, reliable service, and competitive prices.
+                        {{ _('Connect with trusted professionals for all your home service needs.') }}
+                        {{ _('Quality workmanship, reliable service, and competitive prices.') }}
                     </p>
 
                     <div class="hero-buttons">
                         <a class="btn btn-primary btn-lg me-3" href="{{ url_for('register') }}" role="button"
-                           aria-label="Register as a new user">
+                           aria-label="{{ _('Register as a new user') }}">
                             <i class="fas fa-user-plus me-2" aria-hidden="true"></i>
-                            <span>Register</span>
+                            <span>{{ _('Register') }}</span>
                         </a>
                         <a class="btn btn-outline-primary btn-lg" href="{{ url_for('services') }}" role="button"
-                           aria-label="Browse and book available services">
+                           aria-label="{{ _('Browse and book available services') }}">
                             <i class="fas fa-search me-2" aria-hidden="true"></i>
-                            <span>Book Service</span>
+                            <span>{{ _('Book Service') }}</span>
                         </a>
                     </div>
                 </div>
@@ -66,76 +66,76 @@
 
 <!-- Popular Services Section -->
 <section class="services-section" id="services" aria-labelledby="services-heading">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title" id="services-heading">Popular Services</h2>
-            <p class="section-subtitle">Choose from our most requested professional services</p>
-        </div>
+     <div class="container">
+         <div class="section-header text-center">
+             <h2 class="section-title" id="services-heading">{{ _('Popular Services') }}</h2>
+             <p class="section-subtitle">{{ _('Choose from our most requested professional services') }}</p>
+         </div>
 
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="service-card" role="article" aria-labelledby="painting-title">
-                    <div class="service-icon" aria-hidden="true">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h5 class="service-title" id="painting-title">Painting</h5>
-                    <p class="service-description">
-                        Professional interior and exterior painting services with quality finishes
-                    </p>
-                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="Learn more about painting services">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench" aria-hidden="true"></i>
-                    </div>
-                    <h5 class="service-title">Plumbing</h5>
-                    <p class="service-description">
-                        Expert plumbing repairs, installations, and maintenance services
-                    </p>
-                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
+         <div class="row g-4" role="region" aria-label="Available service categories">
+             <div class="col-lg-3 col-md-6">
+                 <article class="service-card" aria-labelledby="painting-title">
+                     <div class="service-icon" aria-hidden="true">
+                         <i class="fas fa-paint-brush"></i>
+                     </div>
+                     <h3 class="service-title" id="painting-title">{{ _('Painting') }}</h3>
+                     <p class="service-description">
+                         {{ _('Professional interior and exterior painting services with quality finishes') }}
+                     </p>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about painting services') }}">
+                         <span>{{ _('Learn More') }}</span>
+                         <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+                     </a>
+                 </article>
+             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
-                    </div>
-                    <h5 class="service-title">Electrical</h5>
-                    <p class="service-description">
-                        Licensed electricians for installations, repairs, and safety inspections
-                    </p>
-                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
+                 <article class="service-card" aria-labelledby="plumbing-title">
+                     <div class="service-icon" aria-hidden="true">
+                         <i class="fas fa-wrench"></i>
+                     </div>
+                     <h3 class="service-title" id="plumbing-title">{{ _('Plumbing') }}</h3>
+                     <p class="service-description">
+                         {{ _('Expert plumbing repairs, installations, and maintenance services') }}
+                     </p>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about plumbing services') }}">
+                         <span>{{ _('Learn More') }}</span>
+                         <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+                     </a>
+                 </article>
+             </div>
 
-            <div class="col-lg-3 col-md-6">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-broom" aria-hidden="true"></i>
-                    </div>
-                    <h5 class="service-title">Cleaning</h5>
-                    <p class="service-description">
-                        Thorough home and office cleaning services for a spotless environment
-                    </p>
-                    <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
+             <div class="col-lg-3 col-md-6">
+                 <article class="service-card" aria-labelledby="electrical-title">
+                     <div class="service-icon" aria-hidden="true">
+                         <i class="fas fa-bolt"></i>
+                     </div>
+                     <h3 class="service-title" id="electrical-title">{{ _('Electrical') }}</h3>
+                     <p class="service-description">
+                         {{ _('Licensed electricians for installations, repairs, and safety inspections') }}
+                     </p>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about electrical services') }}">
+                         <span>{{ _('Learn More') }}</span>
+                         <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+                     </a>
+                 </article>
+             </div>
+
+             <div class="col-lg-3 col-md-6">
+                 <article class="service-card" aria-labelledby="cleaning-title">
+                     <div class="service-icon" aria-hidden="true">
+                         <i class="fas fa-broom"></i>
+                     </div>
+                     <h3 class="service-title" id="cleaning-title">{{ _('Cleaning') }}</h3>
+                     <p class="service-description">
+                         {{ _('Thorough home and office cleaning services for a spotless environment') }}
+                     </p>
+                     <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm" aria-label="{{ _('Learn more about cleaning services') }}">
+                         <span>{{ _('Learn More') }}</span>
+                         <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+                     </a>
+                 </article>
+             </div>
         </div>
     </div>
 </section>
@@ -144,57 +144,57 @@
 <section class="features-section" id="features">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title">Why Choose Service PRO?</h2>
-            <p class="section-subtitle">We connect homeowners with trusted professional service providers</p>
+            <h2 class="section-title">{{ _('Why Choose Service PRO?') }}</h2>
+            <p class="section-subtitle">{{ _('We connect homeowners with trusted professional service providers') }}</p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4" role="region" aria-label="Why choose Service PRO">
             <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                <article class="feature-card text-center" aria-labelledby="verified-title">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h5 class="feature-title">Verified Professionals</h5>
+                    <h3 class="feature-title" id="verified-title">{{ _('Verified Professionals') }}</h3>
                     <p class="feature-description">
-                        All service providers are background-checked and verified for your peace of mind
+                        {{ _('All service providers are background-checked and verified for your peace of mind') }}
                     </p>
-                </div>
+                </article>
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-star" aria-hidden="true"></i>
+                <article class="feature-card text-center" aria-labelledby="quality-title">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-star"></i>
                     </div>
-                    <h5 class="feature-title">Quality Guarantee</h5>
+                    <h3 class="feature-title" id="quality-title">{{ _('Quality Guarantee') }}</h3>
                     <p class="feature-description">
-                        100% satisfaction guarantee on all services with our quality assurance program
+                        {{ _('100% satisfaction guarantee on all services with our quality assurance program') }}
                     </p>
-                </div>
+                </article>
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock" aria-hidden="true"></i>
+                <article class="feature-card text-center" aria-labelledby="fast-title">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h5 class="feature-title">Fast Service</h5>
+                    <h3 class="feature-title" id="fast-title">{{ _('Fast Service') }}</h3>
                     <p class="feature-description">
-                        Quick response times and flexible scheduling for your busy lifestyle
+                        {{ _('Quick response times and flexible scheduling for your busy lifestyle') }}
                     </p>
-                </div>
+                </article>
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset" aria-hidden="true"></i>
+                <article class="feature-card text-center" aria-labelledby="support-title">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <h5 class="feature-title">24/7 Support</h5>
+                    <h3 class="feature-title" id="support-title">{{ _('24/7 Support') }}</h3>
                     <p class="feature-description">
-                        Round-the-clock customer support to help you whenever you need assistance
+                        {{ _('Round-the-clock customer support to help you whenever you need assistance') }}
                     </p>
-                </div>
+                </article>
             </div>
         </div>
     </div>
@@ -211,7 +211,7 @@
                     </div>
                     <div class="stats-content">
                         <h3 class="stats-number">500+</h3>
-                        <p class="stats-label">Happy Clients</p>
+                        <p class="stats-label">{{ _('Happy Clients') }}</p>
                     </div>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                     </div>
                     <div class="stats-content">
                         <h3 class="stats-number">100+</h3>
-                        <p class="stats-label">Professionals</p>
+                        <p class="stats-label">{{ _('Professionals') }}</p>
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                     </div>
                     <div class="stats-content">
                         <h3 class="stats-number">50+</h3>
-                        <p class="stats-label">Service Types</p>
+                        <p class="stats-label">{{ _('Service Types') }}</p>
                     </div>
                 </div>
             </div>
@@ -247,7 +247,7 @@
                     </div>
                     <div class="stats-content">
                         <h3 class="stats-number">24/7</h3>
-                        <p class="stats-label">Support</p>
+                        <p class="stats-label">{{ _('Support') }}</p>
                     </div>
                 </div>
             </div>
@@ -262,9 +262,9 @@
             <div class="col-lg-8">
                 <div class="contact-card">
                     <div class="contact-header text-center">
-                        <h2 class="contact-title">Get In Touch</h2>
+                        <h2 class="contact-title">{{ _('Get In Touch') }}</h2>
                         <p class="contact-subtitle">
-                            Have a question or need a custom service? Send us a message and we'll get back to you soon.
+                            {{ _('Have a question or need a custom service? Send us a message and we will get back to you soon.') }}
                         </p>
                     </div>
 
@@ -273,43 +273,43 @@
                             <div class="col-md-6">
                                 <label for="contactName" class="form-label">
                                     <i class="fas fa-user me-2" aria-hidden="true"></i>
-                                    Full Name
+                                    {{ _('Full Name') }}
                                 </label>
                                 <input type="text" class="form-control" id="contactName" name="name"
-                                       placeholder="Enter your full name" required aria-required="true">
+                                       placeholder="{{ _('Enter your full name') }}" required aria-required="true">
                             </div>
                             <div class="col-md-6">
                                 <label for="contactEmail" class="form-label">
                                     <i class="fas fa-envelope me-2" aria-hidden="true"></i>
-                                    Email Address
+                                    {{ _('Email Address') }}
                                 </label>
                                 <input type="email" class="form-control" id="contactEmail" name="email"
-                                       placeholder="Enter your email" required aria-required="true">
+                                       placeholder="{{ _('Enter your email') }}" required aria-required="true">
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="contactAddress" class="form-label">
                                 <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>
-                                Service Address
+                                {{ _('Service Address') }}
                             </label>
                             <input type="text" class="form-control" id="contactAddress" name="address"
-                                   placeholder="Enter your service address" required aria-required="true">
+                                   placeholder="{{ _('Enter your service address') }}" required aria-required="true">
                         </div>
 
                         <div class="mb-3">
                             <label for="contactMessage" class="form-label">
                                 <i class="fas fa-comment me-2" aria-hidden="true"></i>
-                                Message
+                                {{ _('Message') }}
                             </label>
                             <textarea class="form-control" id="contactMessage" name="message" rows="5"
-                                      placeholder="Describe your service needs..." required aria-required="true"></textarea>
+                                      placeholder="{{ _('Describe your service needs...') }}" required aria-required="true"></textarea>
                         </div>
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-lg">
                                 <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>
-                                <span>Submit Request</span>
+                                <span>{{ _('Submit Request') }}</span>
                             </button>
                         </div>
                     </form>
@@ -323,18 +323,18 @@
 <section class="cta-section">
     <div class="container">
         <div class="cta-content text-center">
-            <h2 class="cta-title">Ready to Get Started?</h2>
+            <h2 class="cta-title">{{ _('Ready to Get Started?') }}</h2>
             <p class="cta-subtitle">
-                Join thousands of satisfied customers and find your perfect service provider today
+                {{ _('Join thousands of satisfied customers and find your perfect service provider today') }}
             </p>
             <div class="cta-buttons">
                 <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-3">
                     <i class="fas fa-rocket me-2" aria-hidden="true"></i>
-                    <span>Get Started</span>
+                    <span>{{ _('Get Started') }}</span>
                 </a>
                 <a href="{{ url_for('services') }}" class="btn btn-outline-primary btn-lg">
                     <i class="fas fa-search me-2" aria-hidden="true"></i>
-                    <span>Browse Services</span>
+                    <span>{{ _('Browse Services') }}</span>
                 </a>
             </div>
         </div>

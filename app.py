@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 import os
 import secrets
 import json
+import re
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -62,18 +63,69 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 @app.after_request
 def add_cors_headers(response):
     """Add CORS and security headers"""
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    # More restrictive CORS for production
+    allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
 
-    # Security headers
+    origin = request.headers.get('Origin')
+    if origin in allowed_origins:
+        response.headers['Access-Control-Allow-Origin'] = origin
+    elif os.getenv('FLASK_ENV') == 'development':
+        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    response.headers['Access-Control-Max-Age'] = '86400'  # 24 hours
+
+    # Enhanced security headers
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     response.headers['X-XSS-Protection'] = '1; mode=block'
-    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: http://localhost:3000; connect-src 'self' http://localhost:5000"
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+
+    # Only add HSTS in production over HTTPS
+    if os.getenv('FLASK_ENV') == 'production' and request.headers.get('X-Forwarded-Proto') == 'https':
+        response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+
+    # Enhanced CSP
+    csp = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; "
+        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; "
+        "img-src 'self' data: https: http:; "
+        "connect-src 'self' http: https:; "
+        "frame-ancestors 'none'; "
+        "form-action 'self'; "
+        "upgrade-insecure-requests;"
+    )
+    response.headers['Content-Security-Policy'] = csp
+
     return response
+
+# Input validation functions
+def validate_phone(phone):
+    """Validate phone number format"""
+    if not phone:
+        return True  # Phone is optional
+    phone_pattern = re.compile(r'^[\+]?[1-9][\d]{0,15}$')
+    return bool(phone_pattern.match(phone.replace(' ', '').replace('-', '')))
+
+def validate_price(price):
+    """Validate price is positive and reasonable"""
+    try:
+        price_float = float(price)
+        return 0 < price_float <= 99999  # Max 5 digit price
+    except (ValueError, TypeError):
+        return False
+
+def validate_duration(duration):
+    """Validate duration is positive integer"""
+    try:
+        duration_int = int(duration)
+        return 0 < duration_int <= 24  # Max 24 hours
+    except (ValueError, TypeError):
+        return False
 
 # Locale selector function
 def get_locale():
@@ -150,7 +202,12 @@ def api_get_services():
             } for s in services]
         })
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
+        app.logger.error(f"API Error in get_service_groups: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to load service groups',
+            'details': str(e) if app.debug else 'Internal server error'
+        }), 500
 
 @app.route('/api/auth/login', methods=['POST'])
 def api_login():
@@ -562,7 +619,7 @@ def index():
             </html>
             '''
     except Exception as e:
-        print(f"Error loading index: {e}")
+        app.logger.error(f"Error loading index page: {str(e)}")
         # Fallback to simple message on error
         return '''
         <html>
@@ -622,8 +679,8 @@ def login():
             else:
                 flash('Invalid username or password.', 'error')
         except Exception as e:
+            app.logger.error(f"Login error for user {form.username.data}: {str(e)}")
             flash('Login failed. Please try again.', 'error')
-            print(f"Login error: {e}")
 
     return render_template('login.html', form=form)
 
@@ -815,8 +872,8 @@ def book_service(service_id):
                 return redirect(url_for('user_dashboard'))
             except Exception as e:
                 db.session.rollback()
+                app.logger.error(f"Booking error for user {current_user.id}, service {service_id}: {str(e)}")
                 flash('Broneerimine ebaõnnestus. Palun proovige uuesti.', 'error')
-                print(f"Booking error: {e}")
 
         return render_template('book_service.html', form=form, service=service)
     except Exception as e:
