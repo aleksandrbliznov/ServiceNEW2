@@ -264,6 +264,14 @@ railway logs --build
 # Railway expects this structure for gunicorn deployment
 ```
 
+#### ModuleNotFoundError: No module named 'flask_sqlalchemy'
+```bash
+# This error occurs when Flask-SQLAlchemy is not installed
+# Solution: Add Flask-SQLAlchemy to requirements.txt
+# Make sure requirements.txt includes: Flask-SQLAlchemy==3.0.5
+# Railway will automatically install dependencies on deployment
+```
+
 #### Database Connection Issues
 ```bash
 # Test database connection
