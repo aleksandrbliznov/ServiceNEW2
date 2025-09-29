@@ -48,7 +48,7 @@ def generate_secret_key():
     return secrets.token_hex(32)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', generate_secret_key())
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///instance/service_app.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/service_app_fixed.db'
 
 # Configure engine options based on database type
 db_uri = app.config['SQLALCHEMY_DATABASE_URI']
@@ -101,14 +101,24 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 @app.after_request
 def add_cors_headers(response):
     """Add CORS and security headers"""
-    # More restrictive CORS for production
+    origin = request.headers.get('Origin')
+
+    # Handle Railway domains and custom domains
+    railway_domain = os.getenv('RAILWAY_STATIC_URL')
     allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
 
-    origin = request.headers.get('Origin')
-    if origin in allowed_origins:
+    # Add Railway domain to allowed origins if available
+    if railway_domain:
+        allowed_origins.append(railway_domain)
+
+    # Check if origin is allowed
+    if origin in allowed_origins or (railway_domain and origin == railway_domain):
         response.headers['Access-Control-Allow-Origin'] = origin
     elif os.getenv('FLASK_ENV') == 'development':
         response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    elif origin and (origin.endswith('.railway.app') or origin.endswith('.vercel.app') or origin.endswith('.netlify.app')):
+        # Allow other deployment platforms for development
+        response.headers['Access-Control-Allow-Origin'] = origin
 
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With'

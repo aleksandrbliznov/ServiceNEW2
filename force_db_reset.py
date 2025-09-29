@@ -16,8 +16,22 @@ def force_reset_database():
     db_path = 'instance/service_app.db'
     if os.path.exists(db_path):
         try:
-            os.remove(db_path)
-            print(f"Removed old database: {db_path}")
+            # Try multiple times to remove the file (in case of locks)
+            import time
+            for i in range(5):
+                try:
+                    os.remove(db_path)
+                    print(f"Removed old database: {db_path}")
+                    break
+                except PermissionError:
+                    if i < 4:
+                        print(f"Database file locked, retrying in 1 second... (attempt {i+1}/5)")
+                        time.sleep(1)
+                        continue
+                    else:
+                        print("Could not remove database file after 5 attempts")
+                        print("Please manually stop any running Flask processes and try again")
+                        return False
         except Exception as e:
             print(f"Could not remove database: {e}")
             return False
