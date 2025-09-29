@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
-# Configure MySQL to use PyMySQL for Python 3 BEFORE importing SQLAlchemy
+# Configure database driver based on database type
 db_uri = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///instance/service_app.db')
 if db_uri.startswith('mysql'):
     try:
@@ -12,6 +12,13 @@ if db_uri.startswith('mysql'):
     except ImportError:
         print("WARNING: PyMySQL not found, install with: pip install PyMySQL")
         print("  Falling back to default MySQL driver")
+elif db_uri.startswith('postgresql'):
+    try:
+        import psycopg2  # Python 3 PostgreSQL driver
+        print("✓ Configured SQLAlchemy to use psycopg2 for PostgreSQL")
+    except ImportError:
+        print("WARNING: psycopg2 not found, install with: pip install psycopg2-binary")
+        print("  Falling back to default PostgreSQL driver")
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from flask_babel import Babel, gettext, ngettext, lazy_gettext
@@ -20,10 +27,10 @@ from wtforms import StringField, PasswordField, TextAreaField, SelectField, Subm
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError, NumberRange
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
-import os
 import secrets
 import json
 import re
+import traceback
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -38,7 +45,6 @@ from api import init_api
 # Security: Generate a secure secret key if not provided
 def generate_secret_key():
     """Generate a cryptographically secure secret key"""
-    import secrets
     return secrets.token_hex(32)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', generate_secret_key())
@@ -61,8 +67,18 @@ elif db_uri.startswith('mysql'):
         print("WARNING: PyMySQL not found, install with: pip install PyMySQL")
         print("  Falling back to default MySQL driver")
         app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
+elif db_uri.startswith('postgresql'):
+    # PostgreSQL with psycopg2 (Python 3 compatible)
+    try:
+        import psycopg2  # Python 3 PostgreSQL driver
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
+        print("✓ Using psycopg2 for PostgreSQL database connectivity")
+    except ImportError:
+        print("WARNING: psycopg2 not found, install with: pip install psycopg2-binary")
+        print("  Falling back to default PostgreSQL driver")
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
 else:
-    # PostgreSQL options
+    # Default options for other databases
     app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'static/uploads')
@@ -364,7 +380,6 @@ def parse_json(value):
     if not value:
         return []
     try:
-        import json
         return json.loads(value)
     except (json.JSONDecodeError, TypeError):
         return []
@@ -632,7 +647,6 @@ class WorkHoursForm(FlaskForm):
 def index():
     try:
         # Check if modern landing page exists and serve it
-        import os
         landing_template = 'landing.html'
         index_template = 'index.html'
 
@@ -1371,7 +1385,6 @@ def handyman_feedback():
                              four_plus_count=four_plus_count)
     except Exception as e:
         print(f"Error loading handyman feedback: {e}")
-        import traceback
         traceback.print_exc()
         flash('Error loading feedback. Please try again.', 'error')
         return redirect(url_for('handyman_dashboard'))

@@ -1,11 +1,11 @@
-# Service PRO .htaccess for Radicenter
+# Service PRO .htaccess for Railway
 # Place this file in your public_html or web root directory
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Handle path-based deployment (for asbg.ee/servicepro)
-    RewriteRule ^servicepro/(.*)$ http://127.0.0.1:5000/servicepro/$1 [P,L]
+    # Handle Railway deployment (reverse proxy)
+    RewriteRule ^(.*)$ http://127.0.0.1:5000/$1 [P,L]
 
     # Security headers
     <IfModule mod_headers.c>

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Radicenter Deployment Script for Service PRO
-Automates the deployment process for Radicenter hosting
+Railway Deployment Script for Service PRO
+Automates the deployment process for Railway hosting
 Python 3.6+ compatible
+Supports PostgreSQL databases
 """
 
 import os
@@ -111,7 +112,7 @@ def create_startup_script():
     print("Creating startup script...")
 
     startup_script = '''#!/bin/bash
-# Service PRO Startup Script for Radicenter
+# Service PRO Startup Script for Railway
 
 # Set environment variables
 export FLASK_ENV=production
@@ -120,9 +121,10 @@ export FLASK_APP=app.py
 # Create logs directory if it doesn't exist
 mkdir -p logs
 
-# Start the application with gunicorn
-echo "Starting Service PRO..."
-exec gunicorn --bind 127.0.0.1:5000 --workers 4 --worker-class sync --log-level info --access-logfile logs/access.log --error-logfile logs/error.log app:app
+# Start the application with gunicorn (Railway optimized)
+echo "Starting Service PRO on Railway..."
+echo "Application will be available at: https://your-app.railway.app"
+exec gunicorn --bind 0.0.0.0:$PORT --workers 4 --worker-class sync --log-level info --access-logfile logs/access.log --error-logfile logs/error.log main:application
 '''
 
     with open('start.sh', 'w') as f:
@@ -138,14 +140,14 @@ def create_htaccess():
     """Create .htaccess file for Apache"""
     print("Creating .htaccess file...")
 
-    htaccess_content = '''# Service PRO .htaccess for Radicenter
+    htaccess_content = '''# Service PRO .htaccess for Railway
 # Place this file in your public_html or web root directory
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Handle path-based deployment (for asbg.ee/servicepro)
-    RewriteRule ^servicepro/(.*)$ http://127.0.0.1:5000/servicepro/$1 [P,L]
+    # Handle Railway deployment (reverse proxy)
+    RewriteRule ^(.*)$ http://127.0.0.1:5000/$1 [P,L]
 
     # Security headers
     <IfModule mod_headers.c>
@@ -190,7 +192,7 @@ def create_htaccess():
 
 def main():
     """Main deployment function"""
-    print("Starting Service PRO deployment for Radicenter...")
+    print("Starting Service PRO deployment for Railway...")
     print("=" * 60)
 
     if not check_requirements():
@@ -216,12 +218,12 @@ def main():
         print("=" * 60)
         print("Deployment preparation completed successfully!")
         print("\nNext steps:")
-        print("1. Upload all files to your Radicenter hosting")
-        print("2. Copy .env.production to .env and update with your database credentials")
-        print("3. Run the application using: ./start.sh")
-        print("4. Configure your domain asbg.ee to point to your hosting")
-        print("5. Configure SSL certificate for https://asbg.ee")
-        print("\nFor support, check the README_deploy.md file")
+        print("1. Connect your project to Railway")
+        print("2. Railway will automatically set up PostgreSQL database")
+        print("3. Add environment variables in Railway dashboard")
+        print("4. Railway automatically handles SSL and domain")
+        print("5. Your app will be available at: https://your-app.railway.app")
+        print("\nFor support, check the README_railway.md file")
     else:
         print("=" * 60)
         print("[ERROR] Deployment preparation failed!")
