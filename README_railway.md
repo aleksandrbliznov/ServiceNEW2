@@ -268,8 +268,18 @@ railway logs --build
 ```bash
 # This error occurs when Flask-SQLAlchemy is not installed
 # Solution: Add Flask-SQLAlchemy to requirements.txt
-# Make sure requirements.txt includes: Flask-SQLAlchemy==3.0.5
+# Make sure requirements.txt includes: Flask-SQLAlchemy==2.5.1
 # Railway will automatically install dependencies on deployment
+```
+
+#### SQLAlchemy Compatibility Issues (Python 3.13+)
+```bash
+# This error occurs with SQLAlchemy 2.x and Python 3.13+
+# Error: AssertionError: Class SQLCoreOperations directly inherits TypingOnly
+# Solution: Downgrade to compatible versions:
+# SQLAlchemy==1.4.53
+# Flask-SQLAlchemy==2.5.1
+# These versions are compatible with Python 3.13+
 ```
 
 #### Database Connection Issues

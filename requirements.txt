@@ -1,10 +1,10 @@
 Flask==2.3.2
-Flask-SQLAlchemy==3.0.5
+Flask-SQLAlchemy==2.5.1
 Flask-Babel==3.0.0
 Flask-Login==0.6.3
 Flask-WTF==1.1.1
 Flask-Mail==0.9.1
-SQLAlchemy==2.0.19
+SQLAlchemy==1.4.53
 PyMySQL==1.1.0
 psycopg2-binary==2.9.7
 python-dotenv==1.0.0

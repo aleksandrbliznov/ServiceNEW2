@@ -53,7 +53,7 @@ def check_requirements():
 
 def install_dependencies():
     """Install Python dependencies"""
-    print("Installing Python dependencies (including Flask-SQLAlchemy for Railway)...")
+    print("Installing Python dependencies (including Flask-SQLAlchemy 2.5.1 for Railway)...")
 
     # Upgrade pip first
     if not run_command("pip install --upgrade pip", "Upgrading pip"):
