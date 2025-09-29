@@ -21,6 +21,9 @@ msgstr "Начать"
 msgid "Login"
 msgstr "Войти"
 
+msgid "Services"
+msgstr "Услуги"
+
 msgid "Our Services"
 msgstr "Наши услуги"
 
@@ -36,8 +39,8 @@ msgstr "Пожалуйста, войдите для бронирования у�
 msgid "About Service PRO"
 msgstr "О Service PRO"
 
-msgid "We connect homeowners with trusted, professional service providers."
-msgstr "Мы связываем домовладельцев с надежными профессиональными поставщиками услуг."
+msgid "We connect homeowners with trusted professional service providers"
+msgstr "Мы связываем домовладельцев с надежными профессиональными поставщиками услуг"
 
 msgid "Our platform ensures quality, reliability, and peace of mind for all your home service needs."
 msgstr "Наша платформа обеспечивает качество, надежность и спокойствие для всех ваших домашних нужд."
@@ -84,6 +87,9 @@ msgstr "Присоединяйтесь к тысячам довольных кл
 msgid "Contact Us"
 msgstr "Свяжитесь с нами"
 
+msgid "About Us"
+msgstr "О нас"
+
 msgid "Home"
 msgstr "Главная"
 
@@ -105,8 +111,26 @@ msgstr "Выйти"
 msgid "Manage Services"
 msgstr "Управление услугами"
 
+msgid "My Services"
+msgstr "Мои услуги"
+
 msgid "Add New Service"
 msgstr "Добавить новую услугу"
+
+msgid "My Work Hours"
+msgstr "Мои рабочие часы"
+
+msgid "Service Groups Management"
+msgstr "Управление группами услуг"
+
+msgid "Add New Group"
+msgstr "Добавить новую группу"
+
+msgid "Add Work Hours"
+msgstr "Добавить рабочие часы"
+
+msgid "Add New Service Group"
+msgstr "Добавить новую группу услуг"
 
 msgid "Service Name"
 msgstr "Название услуги"

@@ -695,18 +695,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">{{ _('Home') }}</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">Avaleht</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('services') }}">{{ _('Our Services') }}</a>
+                        <a class="nav-link" href="{{ url_for('services') }}">Teenused</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">{{ _('About Us') }}</a>
+                        <a class="nav-link" href="#about">Meist</a>
                     </li>
                     {% if current_user.is_authenticated %}
                         {% if current_user.role == 'user' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('user_dashboard') }}">{{ _('My Dashboard') }}</a>
+                            <a class="nav-link" href="{{ url_for('user_dashboard') }}">Minu töölaud</a>
                         </li>
                         {% elif current_user.role == 'admin' %}
                         <li class="nav-item dropdown">
@@ -714,24 +714,24 @@
                                 <i class="fas fa-cog me-1"></i>Admin
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ url_for('admin_dashboard') }}">{{ _('Dashboard') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('admin_service_groups') }}">{{ _('Service Groups') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('admin_pending_services') }}">{{ _('Pending Services') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('admin_commissions') }}">{{ _('Commissions') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('admin_bookings') }}">{{ _('Bookings') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('admin_users') }}">{{ _('Users') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_dashboard') }}">Töölaud</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_service_groups') }}">Teenuste rühmad</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_pending_services') }}">Ootel teenused</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_commissions') }}">Komisjonid</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_bookings') }}">Broneeringud</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin_users') }}">Kasutajad</a></li>
                             </ul>
                         </li>
                         {% elif current_user.role == 'handyman' %}
                         <li class="nav-item dropdown">
                             <button class="btn btn-outline-primary dropdown-toggle me-2" type="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-tools me-1"></i>{{ _('My Panel') }}
+                                <i class="fas fa-tools me-1"></i>Minu paneel
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ url_for('handyman_dashboard') }}">{{ _('Dashboard') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('handyman_services') }}">{{ _('My Services') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('handyman_work_hours') }}">{{ _('Work Hours') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('handyman_feedback') }}">{{ _('Feedback') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('handyman_dashboard') }}">Töölaud</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('handyman_services') }}">Minu teenused</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('handyman_work_hours') }}">Tööaeg</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('handyman_feedback') }}">Tagasiside</a></li>
                             </ul>
                         </li>
                         {% endif %}
@@ -743,12 +743,12 @@
                     {% if not current_user.is_authenticated %}
                     <li class="nav-item me-2">
                         <a class="btn btn-outline-primary" href="{{ url_for('register') }}">
-                            <i class="fas fa-user-plus me-1"></i>{{ _('Register') }}
+                            <i class="fas fa-user-plus me-1"></i>Registreeru
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary" href="{{ url_for('login') }}">
-                            <i class="fas fa-sign-in-alt me-1"></i>{{ _('Login') }}
+                            <i class="fas fa-sign-in-alt me-1"></i>Logi sisse
                         </a>
                     </li>
                     {% else %}
@@ -758,7 +758,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url_for('logout') }}">
-                                <i class="fas fa-sign-out-alt me-2"></i>{{ _('Logout') }}
+                                <i class="fas fa-sign-out-alt me-2"></i>Logi välja
                             </a></li>
                         </ul>
                     </li>
@@ -820,48 +820,48 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="mb-3">{{ _('Services') }}</h6>
+                    <h6 class="mb-3">Teenused</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="#">{{ _('Plumbing') }}</a>
+                            <a href="#">Torutööd</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#">{{ _('Electrical') }}</a>
+                            <a href="#">Elektritööd</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#">{{ _('Cleaning') }}</a>
+                            <a href="#">Koristamine</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#">{{ _('Gardening') }}</a>
+                            <a href="#">Aiatööd</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="mb-3">{{ _('Quick Links') }}</h6>
+                    <h6 class="mb-3">Kiirlingid</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="{{ url_for('index') }}">{{ _('Home') }}</a>
+                            <a href="{{ url_for('index') }}">Avaleht</a>
                         </li>
                         {% if not current_user.is_authenticated %}
                         <li class="mb-2">
-                            <a href="{{ url_for('register') }}">{{ _('Register') }}</a>
+                            <a href="{{ url_for('register') }}">Registreeru</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{{ url_for('login') }}">{{ _('Login') }}</a>
+                            <a href="{{ url_for('login') }}">Logi sisse</a>
                         </li>
                         {% endif %}
                         <li class="mb-2">
-                            <a href="{{ url_for('services') }}">{{ _('Services') }}</a>
+                            <a href="{{ url_for('services') }}">Teenused</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4">
-                    <h6 class="mb-3">{{ _('Contact Info') }}</h6>
+                    <h6 class="mb-3">Kontaktinfo</h6>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>{{ _('123 Service Street, City, State 12345') }}</span>
+                        <span>123 Teenuse tänav, Linn, Maakond 12345</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -869,7 +869,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>contact@example.com</span>
+                        <span>Kontakt e-post</span>
                     </div>
                 </div>
             </div>

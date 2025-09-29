@@ -36,8 +36,8 @@ msgstr "Palun logige sisse teenuste broneerimiseks"
 msgid "About Service PRO"
 msgstr "Service PRO kohta"
 
-msgid "We connect homeowners with trusted, professional service providers."
-msgstr "Me ühendame majaomanikke usaldusväärsete professionaalsete teenuseosutajatega."
+msgid "We connect homeowners with trusted professional service providers"
+msgstr "Me ühendame majaomanikke usaldusväärsete professionaalsete teenuseosutajatega"
 
 msgid "Our platform ensures quality, reliability, and peace of mind for all your home service needs."
 msgstr "Meie platvorm tagab kvaliteedi, usaldusväärsuse ja meelerahu kõigi teie kodu teenuste vajaduste jaoks."
@@ -105,8 +105,26 @@ msgstr "Logi välja"
 msgid "Manage Services"
 msgstr "Halda teenuseid"
 
+msgid "My Services"
+msgstr "Minu teenused"
+
 msgid "Add New Service"
 msgstr "Lisa uus teenus"
+
+msgid "My Work Hours"
+msgstr "Minu tööaeg"
+
+msgid "Service Groups Management"
+msgstr "Teenuste rühmade haldamine"
+
+msgid "Add New Group"
+msgstr "Lisa uus rühm"
+
+msgid "Add Work Hours"
+msgstr "Lisa tööaeg"
+
+msgid "Add New Service Group"
+msgstr "Lisa uus teenuste rühm"
 
 msgid "Service Name"
 msgstr "Teenuse nimi"
@@ -293,6 +311,9 @@ msgstr "Hetkel teenuseid ei ole saadaval."
 
 msgid "Add the first service"
 msgstr "Lisa esimene teenus"
+
+msgid "Services"
+msgstr "Teenused"
 
 msgid "Our Services"
 msgstr "Meie teenused"
@@ -483,6 +504,30 @@ msgstr "Kvaliteetne teenindus teie käeulatuses."
 msgid "All rights reserved."
 msgstr "Kõik õigused kaitstud."
 
+msgid "Contact Email"
+msgstr "Kontakt e-post"
+
+msgid "© 2024 Service PRO. All rights reserved."
+msgstr "© 2024 Service PRO. Kõik õigused kaitstud."
+
+msgid "Our Services"
+msgstr "Meie teenused"
+
+msgid "Professional services for all your home maintenance needs"
+msgstr "Professionaalsed teenused kõigi teie kodu hooldusvajaduste jaoks"
+
+msgid "Services"
+msgstr "Teenused"
+
+msgid "About Us"
+msgstr "Meist"
+
+msgid "My Panel"
+msgstr "Minu paneel"
+
+msgid "Services"
+msgstr "Teenused"
+
 msgid "Made with"
 msgstr "Valmistatud"
 
@@ -620,6 +665,9 @@ msgstr "Töös"
 
 msgid "Leave Feedback"
 msgstr "Jäta tagasiside"
+
+msgid "About Us"
+msgstr "Meist"
 
 msgid "Home"
 msgstr "Avaleht"

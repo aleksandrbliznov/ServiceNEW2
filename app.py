@@ -320,6 +320,14 @@ def api_get_current_user():
         }
     })
 
+# Language switching route
+@app.route('/set-language/<lang>')
+def set_language(lang):
+    """Set user language preference"""
+    if lang in ['et', 'en']:
+        session['lang'] = lang
+    return redirect(request.referrer or url_for('index'))
+
 # Make translation function available in templates
 @app.context_processor
 def inject_gettext():
