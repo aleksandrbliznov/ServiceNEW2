@@ -1,0 +1,42 @@
+# Service PRO .htaccess for Radicenter
+# Place this file in your public_html or web root directory
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle path-based deployment (for asbg.ee/servicepro)
+    RewriteRule ^servicepro/(.*)$ http://127.0.0.1:5000/servicepro/$1 [P,L]
+
+    # Security headers
+    <IfModule mod_headers.c>
+        Header always set X-Content-Type-Options nosniff
+        Header always set X-Frame-Options SAMEORIGIN
+        Header always set X-XSS-Protection "1; mode=block"
+        Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    </IfModule>
+
+    # Force HTTPS if available
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Handle Flask routes
+    RewriteRule ^api/(.*)$ http://127.0.0.1:5000/api/$1 [P,L]
+    RewriteRule ^(.*)$ http://127.0.0.1:5000/$1 [P,L]
+
+</IfModule>
+
+# Prevent access to sensitive files
+<Files "*.py">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files ".env*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>

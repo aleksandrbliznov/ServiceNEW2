@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Simple monitoring script for Service PRO on Radicenter
 Checks application health and sends alerts if needed
+Python 3.6+ compatible
 """
 
 import os

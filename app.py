@@ -1,5 +1,17 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+
+# Configure MySQL to use PyMySQL for Python 3 BEFORE importing SQLAlchemy
+db_uri = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///instance/service_app.db')
+if db_uri.startswith('mysql'):
+    try:
+        import PyMySQL  # Python 3 MySQL driver
+        os.environ['SQLALCHEMY_MYSQL_NO_MYSQLDB'] = '1'
+        print("✓ Configured SQLAlchemy to use PyMySQL for MySQL")
+    except ImportError:
+        print("WARNING: PyMySQL not found, install with: pip install PyMySQL")
+        print("  Falling back to default MySQL driver")
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from flask_babel import Babel, gettext, ngettext, lazy_gettext
@@ -39,8 +51,18 @@ if db_uri.startswith('sqlite'):
     app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
         'connect_args': {'check_same_thread': False}
     }
+elif db_uri.startswith('mysql'):
+    # MySQL with PyMySQL (Python 3 compatible)
+    try:
+        import PyMySQL  # Python 3 MySQL driver
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
+        print("✓ Using PyMySQL for MySQL database connectivity")
+    except ImportError:
+        print("WARNING: PyMySQL not found, install with: pip install PyMySQL")
+        print("  Falling back to default MySQL driver")
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
 else:
-    # PostgreSQL/MySQL options (no check_same_thread)
+    # PostgreSQL options
     app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'static/uploads')

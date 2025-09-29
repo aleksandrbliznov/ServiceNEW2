@@ -21,10 +21,9 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 # Stop your application temporarily
 sudo systemctl stop apache2  # or your web server
 
-# Generate certificate for both domains
+# Generate certificate for domain
 sudo certbot certonly --standalone \
-  -d lexanco.eu \
-  -d servicepro.lexanco.eu \
+  -d asbg.ee \
   --agree-tos \
   --register-unsafely-without-email \
   --no-eff-email
@@ -67,29 +66,28 @@ REMEMBER_COOKIE_SECURE=True
 ## SSL Certificate Locations
 
 After generation, certificates are typically located at:
-- **Certificate**: `/etc/letsencrypt/live/lexanco.eu/cert.pem`
-- **Private Key**: `/etc/letsencrypt/live/lexanco.eu/privkey.pem`
-- **Chain File**: `/etc/letsencrypt/live/lexanco.eu/chain.pem`
+- **Certificate**: `/etc/letsencrypt/live/asbg.ee/cert.pem`
+- **Private Key**: `/etc/letsencrypt/live/asbg.ee/privkey.pem`
+- **Chain File**: `/etc/letsencrypt/live/asbg.ee/chain.pem`
 
 ## Verification
 
 ### Test SSL Installation
 ```bash
 # Test with curl
-curl -I https://lexanco.eu
-curl -I https://servicepro.lexanco.eu
+curl -I https://asbg.ee
 
 # Test with SSL Labs
-# Visit: https://www.ssllabs.com/ssltest/analyze.html?d=lexanco.eu
+# Visit: https://www.ssllabs.com/ssltest/analyze.html?d=asbg.ee
 ```
 
 ### Check Certificate Details
 ```bash
 # View certificate info
-openssl x509 -in /etc/letsencrypt/live/lexanco.eu/cert.pem -text -noout
+openssl x509 -in /etc/letsencrypt/live/asbg.ee/cert.pem -text -noout
 
 # Check expiration date
-openssl x509 -in /etc/letsencrypt/live/lexanco.eu/cert.pem -enddate -noout
+openssl x509 -in /etc/letsencrypt/live/asbg.ee/cert.pem -enddate -noout
 ```
 
 ## Troubleshooting SSL
@@ -99,10 +97,10 @@ openssl x509 -in /etc/letsencrypt/live/lexanco.eu/cert.pem -enddate -noout
 #### Certificate Not Found
 ```bash
 # Check if certificate exists
-sudo ls -la /etc/letsencrypt/live/lexanco.eu/
+sudo ls -la /etc/letsencrypt/live/asbg.ee/
 
 # Reissue certificate if needed
-sudo certbot certonly --standalone -d lexanco.eu -d servicepro.lexanco.eu --force-renewal
+sudo certbot certonly --standalone -d asbg.ee --force-renewal
 ```
 
 #### Mixed Content Warnings
@@ -138,7 +136,7 @@ sudo certbot certificates
 
 # Automated monitoring script
 #!/bin/bash
-EXPIRY=$(openssl x509 -in /etc/letsencrypt/live/lexanco.eu/cert.pem -enddate -noout | cut -d= -f2)
+EXPIRY=$(openssl x509 -in /etc/letsencrypt/live/asbg.ee/cert.pem -enddate -noout | cut -d= -f2)
 echo "Certificate expires: $EXPIRY"
 ```
 

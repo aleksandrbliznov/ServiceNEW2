@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Radicenter Deployment Script for Service PRO
 Automates the deployment process for Radicenter hosting
+Python 3.6+ compatible
 """
 
 import os
@@ -11,13 +13,13 @@ from pathlib import Path
 
 def run_command(command, description):
     """Run a shell command and handle errors"""
-    print(f"→ {description}...")
+    print(f"[INFO] {description}...")
     try:
         result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
-        print(f"✓ {description} completed successfully")
+        print(f"[OK] {description} completed successfully")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"✗ {description} failed: {e}")
+        print(f"[ERROR] {description} failed: {e}")
         print(f"Error output: {e.stderr}")
         return False
 
@@ -28,24 +30,24 @@ def check_requirements():
     # Check Python version
     python_version = sys.version_info
     if python_version < (3, 6):
-        print(f"✗ Python 3.6+ required, found {python_version.major}.{python_version.minor}")
+        print(f"[ERROR] Python 3.6+ required, found {python_version.major}.{python_version.minor}")
         return False
 
-    print(f"✓ Python {python_version.major}.{python_version.minor}.{python_version.micro} found")
+    print(f"[OK] Python {python_version.major}.{python_version.minor}.{python_version.micro} found")
 
     # Check if .env.production exists
     if not os.path.exists('.env.production'):
-        print("✗ .env.production file not found")
+        print("[ERROR] .env.production file not found")
         return False
 
-    print("✓ .env.production file found")
+    print("[OK] .env.production file found")
 
     # Check if requirements.txt exists
     if not os.path.exists('requirements.txt'):
-        print("✗ requirements.txt file not found")
+        print("[ERROR] requirements.txt file not found")
         return False
 
-    print("✓ requirements.txt file found")
+    print("[OK] requirements.txt file found")
     return True
 
 def install_dependencies():
@@ -76,7 +78,7 @@ def setup_directories():
 
     for directory in directories:
         os.makedirs(directory, exist_ok=True)
-        print(f"✓ Created directory: {directory}")
+        print(f"[OK] Created directory: {directory}")
 
     return True
 
@@ -90,7 +92,7 @@ def compile_translations():
 
     for command, description in commands:
         if not run_command(command, description):
-            print(f"⚠ {description} failed, but continuing...")
+            print(f"[WARNING] {description} failed, but continuing...")
 
     return True
 
@@ -99,7 +101,7 @@ def setup_database():
     print("Setting up database...")
 
     if not run_command("python setup_mysql.py", "Setting up MySQL database"):
-        print("⚠ Database setup failed, but continuing...")
+        print("[WARNING] Database setup failed, but continuing...")
         print("You may need to run this manually after deployment")
 
     return True
@@ -128,7 +130,7 @@ exec gunicorn --bind 127.0.0.1:5000 --workers 4 --worker-class sync --log-level 
 
     # Make it executable
     os.chmod('start.sh', 0o755)
-    print("✓ Created start.sh script")
+    print("[OK] Created start.sh script")
 
     return True
 
@@ -142,9 +144,8 @@ def create_htaccess():
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Handle subdomains (for servicepro.lexanco.eu)
-    RewriteCond %{HTTP_HOST} ^servicepro\.lexanco\.eu$ [NC]
-    RewriteRule ^(.*)$ http://lexanco.eu/servicepro/$1 [P,L]
+    # Handle path-based deployment (for asbg.ee/servicepro)
+    RewriteRule ^servicepro/(.*)$ http://127.0.0.1:5000/servicepro/$1 [P,L]
 
     # Security headers
     <IfModule mod_headers.c>
@@ -184,16 +185,16 @@ def create_htaccess():
     with open('.htaccess', 'w') as f:
         f.write(htaccess_content)
 
-    print("✓ Created .htaccess file")
+    print("[OK] Created .htaccess file")
     return True
 
 def main():
     """Main deployment function"""
-    print("🚀 Starting Service PRO deployment for Radicenter...")
+    print("Starting Service PRO deployment for Radicenter...")
     print("=" * 60)
 
     if not check_requirements():
-        print("❌ Deployment requirements not met. Please fix the issues above.")
+        print("[ERROR] Deployment requirements not met. Please fix the issues above.")
         sys.exit(1)
 
     steps = [
@@ -213,17 +214,17 @@ def main():
 
     if success:
         print("=" * 60)
-        print("🎉 Deployment preparation completed successfully!")
+        print("Deployment preparation completed successfully!")
         print("\nNext steps:")
         print("1. Upload all files to your Radicenter hosting")
         print("2. Copy .env.production to .env and update with your database credentials")
         print("3. Run the application using: ./start.sh")
-        print("4. Set up your subdomain servicepro.lexanco.eu to point to your hosting")
-        print("5. Configure SSL certificate for https://lexanco.eu")
+        print("4. Configure your domain asbg.ee to point to your hosting")
+        print("5. Configure SSL certificate for https://asbg.ee")
         print("\nFor support, check the README_deploy.md file")
     else:
         print("=" * 60)
-        print("❌ Deployment preparation failed!")
+        print("[ERROR] Deployment preparation failed!")
         print("Please fix the issues above and try again.")
         sys.exit(1)
 

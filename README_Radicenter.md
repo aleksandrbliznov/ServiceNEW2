@@ -1,13 +1,14 @@
 # 🚀 Service PRO - Radicenter Deployment Guide
 
-This guide provides step-by-step instructions for deploying Service PRO to Radicenter hosting with the domain `http://lexanco.eu/servicepro`.
+This guide provides step-by-step instructions for deploying Service PRO to Radicenter hosting with the domain `http://asbg.ee/servicepro`.
 
 ## 📋 System Requirements
 
 - **Python**: 3.6+ (confirmed available on Radicenter)
 - **Database**: MySQL (confirmed available on Radicenter)
 - **Web Server**: Apache on Linux (confirmed)
-- **Domain**: lexanco.eu with subdomain servicepro
+- **Domain**: asbg.ee with subdomain servicepro
+- **All scripts are Python 3 compatible** with UTF-8 encoding
 
 ## 🛠️ Pre-deployment Setup
 
@@ -25,11 +26,24 @@ This guide provides step-by-step instructions for deploying Service PRO to Radic
    SQLALCHEMY_DATABASE_URI=mysql://username:password@localhost:3306/servicepro_db
    MAIL_USERNAME=your-email@gmail.com
    MAIL_PASSWORD=your-app-password
-   ADMIN_EMAIL=admin@lexanco.eu
+   ADMIN_EMAIL=admin@asbg.ee
    ADMIN_PASSWORD=your-secure-admin-password
    ```
 
-### Step 2: Run Deployment Script
+### Step 2: Verify Python 3 Compatibility (Recommended)
+
+```bash
+# Check Python 3 compatibility
+python check_python3.py
+```
+
+This script verifies:
+- Python version compatibility
+- Required module availability
+- File encoding compatibility
+- MySQL compatibility
+
+### Step 3: Run Deployment Script
 
 ```bash
 # Make deployment script executable
@@ -84,6 +98,9 @@ Upload these files to your Radicenter hosting (typically `public_html/` or web r
 ### Step 2: Initialize Database
 
 ```bash
+# IMPORTANT: Stop any running Flask development servers first
+# (Press Ctrl+C in terminals running 'python app.py')
+
 # Run the database setup script
 python setup_mysql.py
 ```
@@ -93,20 +110,24 @@ This will create:
 - Initial service groups (Kondiiter, Ehitus, Koristus, IT abi)
 - Admin user account
 
+**Notes**:
+- The script automatically detects and uses PyMySQL for Python 3 compatibility
+- If PyMySQL is not available, it falls back to SQLite for setup
+- If you encounter "database file locked" errors, ensure no Flask development server is running
+- For production, install PyMySQL with `pip install PyMySQL` and configure MySQL credentials in `.env`
+
 ## 🌐 Domain Configuration
 
 ### Step 1: Main Domain Setup
 
-1. **Point your domain** `lexanco.eu` to your Radicenter hosting
-2. **Configure subdomain** `servicepro.lexanco.eu` to point to the same hosting
+1. **Point your domain** `asbg.ee` to your Radicenter hosting
 
 ### Step 2: SSL Certificate (Recommended)
 
 1. **Login to Radicenter control panel**
 2. **Navigate to SSL/TLS section**
 3. **Generate free Let's Encrypt certificate** for:
-   - `lexanco.eu`
-   - `servicepro.lexanco.eu`
+    - `asbg.ee`
 
 ## 🚀 Starting the Application
 
@@ -149,7 +170,7 @@ If you need custom Apache configuration, add this to your `.htaccess` or create 
 
 ```apache
 <VirtualHost *:80>
-    ServerName servicepro.lexanco.eu
+    ServerName servicepro.asbg.ee
     DocumentRoot /path/to/your/app
 
     # Proxy requests to Flask
@@ -167,10 +188,9 @@ If you need custom Apache configuration, add this to your `.htaccess` or create 
 
 After deployment, your application will be available at:
 
-- **Main site**: `http://lexanco.eu/servicepro`
-- **Subdomain**: `http://servicepro.lexanco.eu`
-- **Admin panel**: `http://lexanco.eu/servicepro/admin/dashboard`
-- **API endpoints**: `http://lexanco.eu/servicepro/api/`
+- **Main site**: `http://asbg.ee/servicepro`
+- **Admin panel**: `http://asbg.ee/servicepro/admin/dashboard`
+- **API endpoints**: `http://asbg.ee/servicepro/api/`
 
 ## 🔒 Security Checklist
 
@@ -206,7 +226,27 @@ MAIL_PASSWORD=your-app-specific-password
 ```bash
 # Test database connection
 python -c "from app import db; print('Database connected successfully')"
+
+# Verify PyMySQL installation (Python 3)
+python -c "import PyMySQL; print('PyMySQL version:', PyMySQL.__version__)"
+
+# Check environment variables
+echo $SQLALCHEMY_DATABASE_URI
 ```
+
+#### Database File Locked Issues
+If you encounter `sqlite3.OperationalError: unable to open database file`:
+- **Stop all Flask development servers** (press Ctrl+C in running terminals)
+- **Check for running Python processes**: `tasklist | findstr python`
+- **Kill locked processes**: `taskkill /f /pid <PID>`
+- **Delete locked database file**: `del instance\service_app.db` (Windows) or `rm instance/service_app.db` (Linux)
+
+#### MySQLdb vs PyMySQL Issues (Python 3)
+If you encounter `ModuleNotFoundError: No module named 'MySQLdb'`:
+- This is normal - MySQLdb is Python 2 only
+- The application automatically uses PyMySQL for Python 3
+- Ensure PyMySQL is installed: `pip install PyMySQL`
+- Check that your `.env` file uses `mysql://` URLs (not `mysql+mysql://`)
 
 #### Application Not Starting
 ```bash
